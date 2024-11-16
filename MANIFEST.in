@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include buying_house *.css
+recursive-include buying_house *.csv
+recursive-include buying_house *.html
+recursive-include buying_house *.ico
+recursive-include buying_house *.js
+recursive-include buying_house *.json
+recursive-include buying_house *.md
+recursive-include buying_house *.png
+recursive-include buying_house *.py
+recursive-include buying_house *.svg
+recursive-include buying_house *.txt
+recursive-exclude buying_house *.pyc
