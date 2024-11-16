@@ -1,0 +1,47 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-16 18:45:22.202247",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "article_type",
+  "upload_label",
+  "image"
+ ],
+ "fields": [
+  {
+   "fieldname": "article_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Article Type",
+   "options": "\nSweat Shirt\nPants"
+  },
+  {
+   "fieldname": "upload_label",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Upload Label",
+   "options": "\nFirst Carton View\nSecond Carton View\nOpen Carton View\nPolybag View\nLabel View\nChest\nLength\nArm Hole\nSleeve Length\nElbow"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "Image"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-16 18:47:27.811091",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "Inspection Upload",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
