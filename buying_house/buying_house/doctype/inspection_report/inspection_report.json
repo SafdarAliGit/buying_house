@@ -1,0 +1,325 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-19 16:07:54.566908",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_po",
+  "customer_name",
+  "customer_logo",
+  "report_date",
+  "auditor",
+  "amended_from",
+  "general_information_column",
+  "general_information_section",
+  "vendor_address",
+  "inspection_type",
+  "vendor_name",
+  "column_break_lx94p",
+  "logo",
+  "section_break_vlvpd",
+  "inspection_report_item",
+  "section_break_z4fqi",
+  "inspection",
+  "column_break_woa1p",
+  "specification",
+  "column_break_wu1q8",
+  "color",
+  "column_break_bohoj",
+  "fabric_weight",
+  "column_break_egjao",
+  "aql_minor",
+  "column_break_l41mn",
+  "aql_major",
+  "section_break_soptl",
+  "packing_status",
+  "column_break_jwpje",
+  "total_pcs",
+  "column_break_5oa2q",
+  "packed_in_carton",
+  "column_break_wg9oo",
+  "packed_in_carton_percent",
+  "column_break_xdqo1",
+  "finished_not_packed",
+  "column_break_zbqik",
+  "finished_not_packed_percent",
+  "column_break_cwwil",
+  "not_finished",
+  "column_break_ib3xv",
+  "not_finished_percent",
+  "column_break_5tiea",
+  "inpection_report",
+  "section_break_3b61h",
+  "inspection_upload"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_po",
+   "fieldtype": "Link",
+   "label": "Customer PO",
+   "options": "Customer PO"
+  },
+  {
+   "fetch_from": "customer_po.customer_name",
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name"
+  },
+  {
+   "fetch_from": "customer_po.customer_logo",
+   "fieldname": "customer_logo",
+   "fieldtype": "Attach Image",
+   "label": "Customer Logo"
+  },
+  {
+   "default": "Today",
+   "fieldname": "report_date",
+   "fieldtype": "Date",
+   "label": "Report Date"
+  },
+  {
+   "default": "Abdul Rahim",
+   "fieldname": "auditor",
+   "fieldtype": "Data",
+   "label": "Auditor"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Inspection Report",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "general_information_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vendor_address",
+   "fieldtype": "Small Text",
+   "label": "Vendor Address"
+  },
+  {
+   "fieldname": "inspection_type",
+   "fieldtype": "Select",
+   "label": "Inspection Type",
+   "options": "\nFinal Inspection\nInprocess Inspection"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "label": "Vendor Name"
+  },
+  {
+   "fieldname": "column_break_lx94p",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "HTML",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "section_break_vlvpd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "inspection_report_item",
+   "fieldtype": "Table",
+   "label": "SKU Detail",
+   "options": "Inspection Report Item"
+  },
+  {
+   "default": "0",
+   "fetch_from": "customer_po.total_pcs",
+   "fieldname": "total_pcs",
+   "fieldtype": "Int",
+   "label": "Total Pcs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "general_information_section",
+   "fieldtype": "Heading",
+   "label": "General Information"
+  },
+  {
+   "fieldname": "section_break_z4fqi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "inspection",
+   "fieldtype": "Heading",
+   "label": "Inspection"
+  },
+  {
+   "fieldname": "specification",
+   "fieldtype": "Select",
+   "label": "Specification",
+   "options": "\nPass\nFail"
+  },
+  {
+   "fieldname": "color",
+   "fieldtype": "Select",
+   "label": "Color",
+   "options": "\nPass\nFail"
+  },
+  {
+   "fieldname": "fabric_weight",
+   "fieldtype": "Select",
+   "label": "Fabric Weight",
+   "options": "\nPass\nFail"
+  },
+  {
+   "default": "4.0",
+   "fieldname": "aql_minor",
+   "fieldtype": "Float",
+   "label": "AQL Minor"
+  },
+  {
+   "default": "2.5",
+   "fieldname": "aql_major",
+   "fieldtype": "Float",
+   "label": "AQL Major"
+  },
+  {
+   "fieldname": "column_break_wu1q8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bohoj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_egjao",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_l41mn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_woa1p",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "packing_status",
+   "fieldtype": "Heading",
+   "label": "Packing Status"
+  },
+  {
+   "fieldname": "packed_in_carton",
+   "fieldtype": "Int",
+   "label": "Packed In Carton (Pcs)"
+  },
+  {
+   "fieldname": "finished_not_packed",
+   "fieldtype": "Int",
+   "label": "Finished Not Packed (Pcs)"
+  },
+  {
+   "fieldname": "inpection_report",
+   "fieldtype": "Select",
+   "label": "Inpection Report",
+   "options": "\nPass\nFail"
+  },
+  {
+   "fieldname": "packed_in_carton_percent",
+   "fieldtype": "Percent",
+   "label": "Packed In Carton %"
+  },
+  {
+   "fieldname": "finished_not_packed_percent",
+   "fieldtype": "Percent",
+   "label": "Finished Not Packed %"
+  },
+  {
+   "fieldname": "not_finished_percent",
+   "fieldtype": "Percent",
+   "label": "Not Finished %"
+  },
+  {
+   "fieldname": "column_break_jwpje",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_5oa2q",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wg9oo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xdqo1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_zbqik",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_cwwil",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ib3xv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_5tiea",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_soptl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "not_finished",
+   "fieldtype": "Int",
+   "label": "Not Finished (Pcs)"
+  },
+  {
+   "fieldname": "section_break_3b61h",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "inspection_upload",
+   "fieldtype": "Table",
+   "label": "Inspection Upload",
+   "options": "Inspection Upload"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-19 19:54:05.344895",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "Inspection Report",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

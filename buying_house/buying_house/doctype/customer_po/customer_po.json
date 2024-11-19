@@ -1,0 +1,158 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:po_number",
+ "creation": "2024-11-19 12:12:48.083817",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_name",
+  "customer_logo",
+  "customer_name_abbrevation",
+  "section_break_xsf7p",
+  "po_number",
+  "shipment_to",
+  "auditor_name",
+  "column_break_lwama",
+  "logo",
+  "section_break_h7ikz",
+  "sku_detail",
+  "section_break_afxup",
+  "total_ctn",
+  "column_break_xwsy0",
+  "total_dozens",
+  "column_break_dx4aj",
+  "total_pcs",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Link",
+   "label": "Customer Name ",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "customer_logo",
+   "fieldtype": "Attach Image",
+   "label": "Customer Logo"
+  },
+  {
+   "fieldname": "customer_name_abbrevation",
+   "fieldtype": "Data",
+   "label": "Customer Name Abbrevation"
+  },
+  {
+   "fieldname": "po_number",
+   "fieldtype": "Data",
+   "label": "PO Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "shipment_to",
+   "fieldtype": "Data",
+   "label": "Shipment To"
+  },
+  {
+   "fieldname": "auditor_name",
+   "fieldtype": "Data",
+   "label": "Auditor Name"
+  },
+  {
+   "fieldname": "sku_detail",
+   "fieldtype": "Table",
+   "label": "SKU Detail",
+   "options": "SKU Detail"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_ctn",
+   "fieldtype": "Int",
+   "label": "Total Ctn",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_dozens",
+   "fieldtype": "Int",
+   "label": "Total Dozens",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_pcs",
+   "fieldtype": "Int",
+   "label": "Total Pcs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer PO",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_xsf7p",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_h7ikz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_afxup",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xwsy0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dx4aj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lwama",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "HTML",
+   "label": "Logo"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-19 12:55:42.821091",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "Customer PO",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
