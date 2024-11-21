@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "IR-.#####",
  "creation": "2024-11-19 16:07:54.566908",
  "default_view": "List",
  "doctype": "DocType",
@@ -308,10 +309,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-21 17:32:31.086271",
+ "modified": "2024-11-21 20:34:33.026094",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
