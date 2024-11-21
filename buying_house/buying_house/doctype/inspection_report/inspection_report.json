@@ -53,7 +53,9 @@
   "column_break_5tiea",
   "inpection_report",
   "section_break_3b61h",
-  "inspection_upload"
+  "inspection_upload",
+  "section_break_2gvx8",
+  "images_html"
  ],
  "fields": [
   {
@@ -292,12 +294,21 @@
    "fieldtype": "Table",
    "label": "Inspection Upload",
    "options": "Inspection Upload"
+  },
+  {
+   "fieldname": "section_break_2gvx8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "images_html",
+   "fieldtype": "HTML",
+   "label": "Images HTML"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-19 19:54:05.344895",
+ "modified": "2024-11-21 17:32:31.086271",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",

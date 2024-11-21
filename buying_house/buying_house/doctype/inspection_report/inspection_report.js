@@ -3,6 +3,26 @@
 
 frappe.ui.form.on('Inspection Report', {
     refresh: function (frm) {
+        frm.add_custom_button('Upload Multiple Images', function () {
+            new frappe.ui.FileUploader({
+                method: 'buying_house.buying_house.doctype.util.capture',
+                make_attachments_public: "False",
+                dialog_title: "Inspection Report Images",
+                disable_file_browser: "False",
+                frm: frm,
+                restrictions: {
+                    allowed_file_types: [".png"]
+                },
+                on_success(file) {
+                    let child = frm.add_child('inspection_upload');
+                    child.image = file.file_url; // Ensure 'file_url' is the correct property
+                    frm.refresh_field('inspection_upload');
+                    frappe.msgprint(__('Successfully uploaded: {0}', [file.file_name]));
+                }
+
+            });
+        });
+
         fetch_photo(frm);
     }, packed_in_carton: function (frm) {
         calculate_packed_in_carton_percent(frm);
@@ -94,5 +114,4 @@ function fill_inspection_report_child(frm) {
         }
     });
 }
-
 
