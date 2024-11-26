@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-26 19:16:41.002237",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "qty",
+  "level_value",
+  "min_value",
+  "max_value"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Qty",
+   "read_only": 1
+  },
+  {
+   "fieldname": "level_value",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Level Value",
+   "options": "0.010\n0.015\n0.025\n0.040\n0.055\n0.10\n0.15\n0.25\n0.40\n0.65\n1.0\n1.5\n2.5\n4\n6.5\n10\n15\n25\n40\n65\n100\n150\n250\n400\n650\n1000"
+  },
+  {
+   "fieldname": "min_value",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Min Value"
+  },
+  {
+   "fieldname": "max_value",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Max Value"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-26 19:30:11.521978",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "Levels Master Items",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

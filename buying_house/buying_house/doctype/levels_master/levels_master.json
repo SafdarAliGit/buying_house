@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LM-{inspection_type}-{inspection_levels}-{min_qty}-{max_qty}-{qty}",
+ "creation": "2024-11-26 17:44:59.698447",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "inspection_type",
+  "column_break_e5xry",
+  "inspection_levels",
+  "column_break_4ijs1",
+  "min_qty",
+  "column_break_djeqd",
+  "max_qty",
+  "column_break_sj8lx",
+  "qty",
+  "section_break_bbyg3",
+  "levels_master_items"
+ ],
+ "fields": [
+  {
+   "fieldname": "min_qty",
+   "fieldtype": "Select",
+   "label": "Min Qty",
+   "options": "2\n9\n10\n26\n51\n91\n151\n281\n501\n1201\n3201\n10001\n35001\n150001\n500001"
+  },
+  {
+   "fieldname": "max_qty",
+   "fieldtype": "Select",
+   "label": "Max Qty",
+   "options": "8\n15\n25\n50\n90\n150\n280\n500\n1200\n3200\n10000\n35000\n150000\n500000\nOver"
+  },
+  {
+   "fieldname": "inspection_type",
+   "fieldtype": "Select",
+   "label": "Inspection Type",
+   "options": "Special Inspection\nNormal Inspection"
+  },
+  {
+   "fieldname": "inspection_levels",
+   "fieldtype": "Link",
+   "label": "Inspection Levels",
+   "options": "Inspection Levels"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Int",
+   "label": "Qty"
+  },
+  {
+   "fieldname": "column_break_e5xry",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4ijs1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_djeqd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_sj8lx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_bbyg3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "levels_master_items",
+   "fieldtype": "Table",
+   "label": "Levels Master Items",
+   "options": "Levels Master Items"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-26 19:37:55.582699",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "Levels Master",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
