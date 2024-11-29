@@ -1,3 +1,4 @@
+from apps.healthcare.healthcare.hooks import required_apps
 from . import __version__ as app_version
 
 app_name = "buying_house"
@@ -215,3 +216,5 @@ app_license = "MIT"
 # auth_hooks = [
 #	"buying_house.auth.validate"
 # ]
+
+required_apps = ['erpnext']
