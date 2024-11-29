@@ -14,54 +14,54 @@ frappe.ui.form.on('Inspection Report', {
         fetch_photo(frm);
     },
     upload_multiple_images: function (frm) {
-    // Prompt the user with a Select field for the upload label
-    frappe.prompt(
-        {
-            fieldname: 'upload_label',
-            fieldtype: 'Select',
-            label: 'Select Upload Label',
-            reqd: 1, // Make it required
-            options: [
-                "First Carton View",
-                "Second Carton View",
-                "Open Carton View",
-                "Polybag View",
-                "Label View",
-                "Chest",
-                "Length",
-                "Arm Hole",
-                "Sleeve Length",
-                "Elbow"
-            ].join('\n') // Add options as newline-separated values
-        },
-        (values) => {
-            // Store the upload_label value selected by the user
-            let upload_label = values.upload_label;
+        // Prompt the user with a Select field for the upload label
+        frappe.prompt(
+            {
+                fieldname: 'upload_label',
+                fieldtype: 'Select',
+                label: 'Select Upload Label',
+                reqd: 1, // Make it required
+                options: [
+                    "First Carton View",
+                    "Second Carton View",
+                    "Open Carton View",
+                    "Polybag View",
+                    "Label View",
+                    "Chest",
+                    "Length",
+                    "Arm Hole",
+                    "Sleeve Length",
+                    "Elbow"
+                ].join('\n') // Add options as newline-separated values
+            },
+            (values) => {
+                // Store the upload_label value selected by the user
+                let upload_label = values.upload_label;
 
-            // Proceed with the file uploader
-            new frappe.ui.FileUploader({
-                method: 'buying_house.buying_house.doctype.util.capture',
-                make_attachments_public: "False",
-                dialog_title: "Inspection Report Images",
-                disable_file_browser: "False",
-                frm: frm,
-                restrictions: {
-                    allowed_file_types: [".png"]
-                },
-                on_success(file) {
-                    // Add the file and same label to the child table
-                    let child = frm.add_child('inspection_upload');
-                    child.image = file.file_url; // Set file URL
-                    child.upload_label = upload_label; // Set the same label for all rows
-                    frm.refresh_field('inspection_upload'); // Refresh child table
-                    frappe.msgprint(__('Successfully uploaded: {0}', [file.file_name]));
-                }
-            });
-        },
-        __('Upload Label'),
-        __('Done')
-    );
-},
+                // Proceed with the file uploader
+                new frappe.ui.FileUploader({
+                    method: 'buying_house.buying_house.doctype.util.capture',
+                    make_attachments_public: "False",
+                    dialog_title: "Inspection Report Images",
+                    disable_file_browser: "False",
+                    frm: frm,
+                    restrictions: {
+                        allowed_file_types: [".png"]
+                    },
+                    on_success(file) {
+                        // Add the file and same label to the child table
+                        let child = frm.add_child('inspection_upload');
+                        child.image = file.file_url; // Set file URL
+                        child.upload_label = upload_label; // Set the same label for all rows
+                        frm.refresh_field('inspection_upload'); // Refresh child table
+                        frappe.msgprint(__('Successfully uploaded: {0}', [file.file_name]));
+                    }
+                });
+            },
+            __('Upload Label'),
+            __('Done')
+        );
+    },
 
     packed_in_carton: function (frm) {
         calculate_packed_in_carton_percent(frm);
@@ -75,6 +75,9 @@ frappe.ui.form.on('Inspection Report', {
         fill_inspection_report_child(frm);
     },
     aql_level: function (frm) {
+        fetch_min_max_values(frm);
+    },
+    inspection_levels: function (frm) {
         fetch_min_max_values(frm);
     }
 });

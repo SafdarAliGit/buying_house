@@ -12,7 +12,6 @@
   "customer_name",
   "customer_logo",
   "report_date",
-  "auditor",
   "amended_from",
   "general_information_column",
   "general_information_section",
@@ -20,7 +19,10 @@
   "vendor_name",
   "column_break_lx94p",
   "logo",
+  "auditor",
   "section_break_kxtg4",
+  "total_pcs",
+  "column_break_bvkqo",
   "inspection_type",
   "column_break_8ymlr",
   "inspection_levels",
@@ -42,8 +44,6 @@
   "fabric_weight",
   "section_break_soptl",
   "packing_status",
-  "column_break_jwpje",
-  "total_pcs",
   "column_break_5oa2q",
   "packed_in_carton",
   "column_break_wg9oo",
@@ -114,6 +114,7 @@
    "label": "Vendor Address"
   },
   {
+   "default": "Normal Inspection",
    "fieldname": "inspection_type",
    "fieldtype": "Select",
    "label": "Inspection Type",
@@ -246,10 +247,6 @@
    "label": "Not Finished %"
   },
   {
-   "fieldname": "column_break_jwpje",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_5oa2q",
    "fieldtype": "Column Break"
   },
@@ -312,6 +309,7 @@
    "options": "Inspection Levels"
   },
   {
+   "default": "2.5",
    "fieldname": "aql_level",
    "fieldtype": "Select",
    "label": "AQL Level",
@@ -341,12 +339,16 @@
   {
    "fieldname": "column_break_r6jql",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_bvkqo",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-29 19:48:39.758092",
+ "modified": "2024-11-29 20:20:55.628409",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
