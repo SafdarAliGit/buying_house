@@ -217,4 +217,3 @@ app_license = "MIT"
 #	"buying_house.auth.validate"
 # ]
 
-required_apps = ['erpnext']
