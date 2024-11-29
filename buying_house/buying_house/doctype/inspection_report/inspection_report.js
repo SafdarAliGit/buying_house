@@ -10,7 +10,35 @@ frappe.ui.form.on('Inspection Report', {
                 }
             };
         };
-        frm.add_custom_button('Upload Multiple Images', function () {
+
+        fetch_photo(frm);
+    },
+    upload_multiple_images: function (frm) {
+    // Prompt the user with a Select field for the upload label
+    frappe.prompt(
+        {
+            fieldname: 'upload_label',
+            fieldtype: 'Select',
+            label: 'Select Upload Label',
+            reqd: 1, // Make it required
+            options: [
+                "First Carton View",
+                "Second Carton View",
+                "Open Carton View",
+                "Polybag View",
+                "Label View",
+                "Chest",
+                "Length",
+                "Arm Hole",
+                "Sleeve Length",
+                "Elbow"
+            ].join('\n') // Add options as newline-separated values
+        },
+        (values) => {
+            // Store the upload_label value selected by the user
+            let upload_label = values.upload_label;
+
+            // Proceed with the file uploader
             new frappe.ui.FileUploader({
                 method: 'buying_house.buying_house.doctype.util.capture',
                 make_attachments_public: "False",
@@ -21,17 +49,21 @@ frappe.ui.form.on('Inspection Report', {
                     allowed_file_types: [".png"]
                 },
                 on_success(file) {
+                    // Add the file and same label to the child table
                     let child = frm.add_child('inspection_upload');
-                    child.image = file.file_url; // Ensure 'file_url' is the correct property
-                    frm.refresh_field('inspection_upload');
+                    child.image = file.file_url; // Set file URL
+                    child.upload_label = upload_label; // Set the same label for all rows
+                    frm.refresh_field('inspection_upload'); // Refresh child table
                     frappe.msgprint(__('Successfully uploaded: {0}', [file.file_name]));
                 }
-
             });
-        });
+        },
+        __('Upload Label'),
+        __('Done')
+    );
+},
 
-        fetch_photo(frm);
-    }, packed_in_carton: function (frm) {
+    packed_in_carton: function (frm) {
         calculate_packed_in_carton_percent(frm);
     }, finished_not_packed: function (frm) {
         calculate_finished_not_packed_percent(frm);
@@ -52,7 +84,7 @@ function fetch_photo(frm) {
         frappe.db.get_value('Inspection Report', frm.doc.name, 'customer_logo', (r) => {
             if (r && r.customer_logo) {
                 // Display the image using HTML in the HTML field
-                frm.fields_dict['logo'].$wrapper.html(`<img style="padding:6px; border: 1px solid #bbbebf;border-radius: 5px;margin-bottom: 15px;" src="${r.customer_logo}" width="110px" height="130px">`);
+                frm.fields_dict['logo'].$wrapper.html(`<img style="padding:6px; border: 1px solid #bbbebf;border-radius: 5px;margin-bottom: 15px;" src="${r.customer_logo}" width="150px" height="200px">`);
             } else {
                 // Clear the HTML field if no image is available
                 frm.fields_dict['logo'].$wrapper.html('');
@@ -138,8 +170,8 @@ function fetch_min_max_values(frm) {
         callback: function (response) {
             if (response.message) {
                 console.log(response.message);
-                frm.set_value("aql_minor",response.message.min_value);
-                frm.set_value("aql_major",response.message.max_value);
+                frm.set_value("aql_minor", response.message.min_value);
+                frm.set_value("aql_major", response.message.max_value);
             } else {
                 frappe.msgprint(__('No Data Found'));
             }

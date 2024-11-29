@@ -42,7 +42,7 @@ frappe.ui.form.on('Levels Master', {
         } else if (frm.doc.min_qty == 150001) {
             frm.set_value('max_qty', 500000);
         } else if (frm.doc.min_qty == 500001) {
-            frm.set_value('max_qty', 'Over');
+            frm.set_value('max_qty', 50000000);
         }
     },
 

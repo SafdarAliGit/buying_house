@@ -32,7 +32,7 @@
    "fieldname": "max_qty",
    "fieldtype": "Select",
    "label": "Max Qty",
-   "options": "8\n15\n25\n50\n90\n150\n280\n500\n1200\n3200\n10000\n35000\n150000\n500000\nOver"
+   "options": "8\n15\n25\n50\n90\n150\n280\n500\n1200\n3200\n10000\n35000\n150000\n500000\n50000000"
   },
   {
    "fieldname": "inspection_type",
@@ -80,7 +80,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-29 08:32:11.633136",
+ "modified": "2024-11-29 17:50:45.738487",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Levels Master",
