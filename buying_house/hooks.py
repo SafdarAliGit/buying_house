@@ -1,4 +1,4 @@
-from apps.healthcare.healthcare.hooks import required_apps
+# from apps.healthcare.healthcare.hooks import required_apps
 from . import __version__ as app_version
 
 app_name = "buying_house"
