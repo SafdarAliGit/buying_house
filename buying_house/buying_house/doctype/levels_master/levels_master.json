@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:LM-{inspection_type}-{inspection_levels}-{min_qty}-{max_qty}-{qty}",
  "creation": "2024-11-26 17:44:59.698447",
@@ -25,7 +26,7 @@
    "fieldname": "min_qty",
    "fieldtype": "Select",
    "label": "Min Qty",
-   "options": "2\n9\n10\n26\n51\n91\n151\n281\n501\n1201\n3201\n10001\n35001\n150001\n500001"
+   "options": "2\n9\n16\n26\n51\n91\n151\n281\n501\n1201\n3201\n10001\n35001\n150001\n500001"
   },
   {
    "fieldname": "max_qty",
@@ -79,7 +80,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-26 19:37:55.582699",
+ "modified": "2024-11-29 08:32:11.633136",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Levels Master",

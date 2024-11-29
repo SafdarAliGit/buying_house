@@ -3,6 +3,13 @@
 
 frappe.ui.form.on('Inspection Report', {
     refresh: function (frm) {
+        frm.fields_dict['inspection_levels'].get_query = function (doc) {
+            return {
+                filters: {
+                    inspection_type: frm.doc.inspection_type // Filters employees by the selected department
+                }
+            };
+        };
         frm.add_custom_button('Upload Multiple Images', function () {
             new frappe.ui.FileUploader({
                 method: 'buying_house.buying_house.doctype.util.capture',
@@ -34,6 +41,9 @@ frappe.ui.form.on('Inspection Report', {
     },
     customer_po: function (frm) {
         fill_inspection_report_child(frm);
+    },
+    aql_level: function (frm) {
+        fetch_min_max_values(frm);
     }
 });
 
@@ -42,7 +52,7 @@ function fetch_photo(frm) {
         frappe.db.get_value('Inspection Report', frm.doc.name, 'customer_logo', (r) => {
             if (r && r.customer_logo) {
                 // Display the image using HTML in the HTML field
-                frm.fields_dict['logo'].$wrapper.html(`<img style="padding:6px; border: 1px solid #bbbebf;border-radius: 5px;margin-bottom: 92px;" src="${r.customer_logo}" width="150px">`);
+                frm.fields_dict['logo'].$wrapper.html(`<img style="padding:6px; border: 1px solid #bbbebf;border-radius: 5px;margin-bottom: 15px;" src="${r.customer_logo}" width="110px" height="130px">`);
             } else {
                 // Clear the HTML field if no image is available
                 frm.fields_dict['logo'].$wrapper.html('');
@@ -115,3 +125,24 @@ function fill_inspection_report_child(frm) {
     });
 }
 
+
+function fetch_min_max_values(frm) {
+    frappe.call({
+        method: 'buying_house.buying_house.doctype.util.fetch_min_max_values', // Replace with the actual path
+        args: {
+            inspection_type: frm.doc.inspection_type,
+            inspection_levels: frm.doc.inspection_levels,
+            total_pcs: frm.doc.total_pcs,
+            aql_level: frm.doc.aql_level,
+        },
+        callback: function (response) {
+            if (response.message) {
+                console.log(response.message);
+                frm.set_value("aql_minor",response.message.min_value);
+                frm.set_value("aql_major",response.message.max_value);
+            } else {
+                frappe.msgprint(__('No Data Found'));
+            }
+        }
+    });
+}

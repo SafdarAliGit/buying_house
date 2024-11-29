@@ -17,7 +17,7 @@ frappe.ui.form.on('Levels Master', {
             frm.set_value('max_qty', 8);
         } else if (frm.doc.min_qty == 9) {
             frm.set_value('max_qty', 15);
-        } else if (frm.doc.min_qty == 10) {
+        } else if (frm.doc.min_qty == 16) {
             frm.set_value('max_qty', 25);
         } else if (frm.doc.min_qty == 26) {
             frm.set_value('max_qty', 50);
@@ -25,7 +25,7 @@ frappe.ui.form.on('Levels Master', {
             frm.set_value('max_qty', 90);
         } else if (frm.doc.min_qty == 91) {
             frm.set_value('max_qty', 150);
-        } else if (frm.doc.min_qty == 150) {
+        } else if (frm.doc.min_qty == 151) {
             frm.set_value('max_qty', 280);
         } else if (frm.doc.min_qty == 281) {
             frm.set_value('max_qty', 500);
@@ -45,6 +45,7 @@ frappe.ui.form.on('Levels Master', {
             frm.set_value('max_qty', 'Over');
         }
     },
+
 
 
 });

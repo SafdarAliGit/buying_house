@@ -1,5 +1,7 @@
 import frappe
 from frappe.utils import get_site_path
+from frappe.query_builder import Field
+from frappe.query_builder.functions import Coalesce
 
 
 @frappe.whitelist()
@@ -40,3 +42,37 @@ def capture(file=None):
 
     # Return the file object
     return file_doc
+
+
+
+
+@frappe.whitelist()
+def fetch_min_max_values(**args):
+    # Define the main table and child table
+    levels_master = frappe.qb.DocType("Levels Master")
+    levels_master_items = frappe.qb.DocType("Levels Master Items")
+
+    # Build the query
+    query = (
+        frappe.qb.from_(levels_master)
+        .join(levels_master_items)
+        .on(levels_master.name == levels_master_items.parent)
+        .where(
+            (levels_master.inspection_type == args.get("inspection_type"))
+            & (levels_master.inspection_levels == args.get("inspection_levels"))
+            & (levels_master.min_qty <= int(args.get("total_pcs")))
+            & (levels_master.max_qty >= int(args.get("total_pcs")))
+            & (levels_master_items.level_value == args.get("aql_level"))
+
+        )
+        .select(levels_master_items.min_value, levels_master_items.max_value)
+        .limit(1)  # Fetch only the first record
+    )
+
+    # Execute the query
+    result = query.run(as_dict=True)
+
+    # Return the result
+    return result[0] if result else None
+
+  # Use comparison operators
