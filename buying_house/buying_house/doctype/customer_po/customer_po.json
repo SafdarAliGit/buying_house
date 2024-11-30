@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:po_number",
+ "autoname": "format:CPO-{customer_name}-{po_number}",
  "creation": "2024-11-19 12:12:48.083817",
  "default_view": "List",
  "doctype": "DocType",
@@ -35,6 +35,7 @@
    "options": "Customer"
   },
   {
+   "fetch_from": "customer_name.image",
    "fieldname": "customer_logo",
    "fieldtype": "Attach Image",
    "label": "Customer Logo"
@@ -129,11 +130,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-19 12:55:42.821091",
+ "modified": "2024-11-30 22:40:49.299117",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Customer PO",
- "naming_rule": "By fieldname",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

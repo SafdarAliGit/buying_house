@@ -6,6 +6,11 @@ frappe.ui.form.on('Customer PO', {
         fetch_photo(frm);
         calculate_totals(frm);
 
+        frm.add_custom_button(__('Create Inspection Report'), function () {
+            // Navigate to the "Inspection Report" form
+            frappe.new_doc('Inspection Report');
+        }, __('Actions'));
+
     },
     customer_name: function (frm) {
         frm.set_value('customer_name_abbrevation', getAbbreviation(frm.doc.customer_name));
@@ -16,11 +21,11 @@ frappe.ui.form.on('Customer PO', {
 });
 
 frappe.ui.form.on('SKU Detail', {
-    no_of_ctn: function (frm,cdt, cdn) {
+    no_of_ctn: function (frm, cdt, cdn) {
         update_pcs_for_row(cdt, cdn);
         calculate_totals(frm);
     },
-    no_of_doz: function (frm,cdt, cdn) {
+    no_of_doz: function (frm, cdt, cdn) {
         update_pcs_for_row(cdt, cdn);
         calculate_totals(frm);
     },
