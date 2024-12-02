@@ -59,6 +59,11 @@
   "column_break_5tiea",
   "inpection_report",
   "section_break_3b61h",
+  "comments",
+  "inspection_remarks",
+  "defects_persistent",
+  "general_defect_found",
+  "section_break_ikama",
   "upload_multiple_images",
   "inspection_upload",
   "section_break_2gvx8",
@@ -343,12 +348,36 @@
   {
    "fieldname": "column_break_bvkqo",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comments",
+   "fieldtype": "Small Text",
+   "label": "Comments"
+  },
+  {
+   "fieldname": "inspection_remarks",
+   "fieldtype": "Text Editor",
+   "label": "Inspection Remarks"
+  },
+  {
+   "fieldname": "defects_persistent",
+   "fieldtype": "Text Editor",
+   "label": "Defects Persistent"
+  },
+  {
+   "fieldname": "general_defect_found",
+   "fieldtype": "Text Editor",
+   "label": "Defects Persistent In 15% or More Of The Sample Size"
+  },
+  {
+   "fieldname": "section_break_ikama",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-30 22:37:05.089551",
+ "modified": "2024-12-02 21:16:12.020182",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
