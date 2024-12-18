@@ -2,7 +2,10 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Inspection Report', {
+
     refresh: function (frm) {
+
+
         frm.fields_dict['inspection_levels'].get_query = function (doc) {
             return {
                 filters: {
@@ -22,16 +25,12 @@ frappe.ui.form.on('Inspection Report', {
                 label: 'Select Upload Label',
                 reqd: 1, // Make it required
                 options: [
-                    "First Carton View",
-                    "Second Carton View",
-                    "Open Carton View",
-                    "Polybag View",
-                    "Label View",
-                    "Chest",
-                    "Length",
-                    "Arm Hole",
-                    "Sleeve Length",
-                    "Elbow"
+                    "Unlock",
+                    "Carton Images",
+                    "Packaging Images",
+                    "Measurements",
+                    "Print",
+                    "Faults"
                 ].join('\n') // Add options as newline-separated values
             },
             (values) => {
@@ -46,7 +45,7 @@ frappe.ui.form.on('Inspection Report', {
                     disable_file_browser: "False",
                     frm: frm,
                     restrictions: {
-                        allowed_file_types: [".png"]
+                        allowed_file_types: [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
                     },
                     on_success(file) {
                         // Add the file and same label to the child table
@@ -181,3 +180,4 @@ function fetch_min_max_values(frm) {
         }
     });
 }
+
