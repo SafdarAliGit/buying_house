@@ -62,6 +62,7 @@
    "label": "Auditor Name"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "sku_detail",
    "fieldtype": "Table",
    "label": "SKU Detail",
@@ -130,7 +131,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-30 22:40:49.299117",
+ "modified": "2024-12-19 16:43:47.765676",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Customer PO",
