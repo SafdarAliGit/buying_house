@@ -22,9 +22,11 @@
   "auditor",
   "section_break_vlvpd",
   "inspection_report_item",
+  "section_break_op8fh",
   "total_no_of_ctn",
-  "section_break_kxtg4",
+  "column_break_f5l3u",
   "total_pcs",
+  "section_break_kxtg4",
   "column_break_bvkqo",
   "inspection_type",
   "column_break_8ymlr",
@@ -380,12 +382,20 @@
    "fieldtype": "Int",
    "label": "Total No Of CTN",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_op8fh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_f5l3u",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-26 17:45:04.483057",
+ "modified": "2024-12-26 18:25:50.860741",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
