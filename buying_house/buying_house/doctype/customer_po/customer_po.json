@@ -25,7 +25,9 @@
   "total_dozens",
   "column_break_dx4aj",
   "total_pcs",
-  "amended_from"
+  "amended_from",
+  "home_textile_sizes_section",
+  "home_textile_sizes_items"
  ],
  "fields": [
   {
@@ -126,12 +128,23 @@
    "fieldname": "logo",
    "fieldtype": "HTML",
    "label": "Logo"
+  },
+  {
+   "fieldname": "home_textile_sizes_section",
+   "fieldtype": "Section Break",
+   "label": "Home Textile Sizes"
+  },
+  {
+   "fieldname": "home_textile_sizes_items",
+   "fieldtype": "Table",
+   "label": "Home Textile Sizes Items",
+   "options": "Home Textile Sizes Items"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-19 16:43:47.765676",
+ "modified": "2024-12-26 15:51:03.326387",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Customer PO",
