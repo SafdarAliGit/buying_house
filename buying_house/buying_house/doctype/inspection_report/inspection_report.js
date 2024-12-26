@@ -142,13 +142,14 @@ function fill_inspection_report_child(frm) {
 
                 // Clear existing rows in the child table
                 frm.clear_table('inspection_report_item');
-
+                let total_no_of_ctn = 0;
                 // Add rows to the child table
                 data.forEach(row => {
                     let child = frm.add_child('inspection_report_item');
                     child.sku = row.sku;
                     child.item_description = row.item_description;
-                    child.no_of_ctn = row.no_of_ctn || 0; // Default to 0 if undefined
+                    child.no_of_ctn = row.no_of_ctn || 0;
+                    total_no_of_ctn += row.no_of_ctn || 0;// Default to 0 if undefined
                     child.no_of_doz = row.no_of_doz || 0; // Default to 0 if undefined
                     child.pcs = row.pcs || 0; // Default to 0 if undefined
                     child.s = row.s || 0; // Default to 0 if undefined
@@ -170,6 +171,7 @@ function fill_inspection_report_child(frm) {
 
                 // Refresh the child table to display the new data
                 frm.refresh_field('inspection_report_item');
+                frm.set_value("total_no_of_ctn", total_no_of_ctn);
             } else {
                 frappe.msgprint(__('No SKU Details found for the given Customer PO.'));
             }
