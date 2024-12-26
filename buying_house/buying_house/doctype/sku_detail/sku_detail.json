@@ -8,7 +8,6 @@
  "field_order": [
   "sku",
   "item_description",
-  "size",
   "no_of_ctn",
   "no_of_doz",
   "pcs",
@@ -43,13 +42,6 @@
    "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "Item Description"
-  },
-  {
-   "fieldname": "size",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Size",
-   "options": "\nXS\nS\nM\nL\nXL\nXXL"
   },
   {
    "fieldname": "no_of_ctn",
@@ -176,7 +168,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-26 15:31:31.239999",
+ "modified": "2024-12-26 16:05:17.377538",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "SKU Detail",

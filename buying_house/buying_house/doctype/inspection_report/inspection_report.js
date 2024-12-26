@@ -130,6 +130,7 @@ function calculate_not_finished_percent(frm) {
 }
 
 function fill_inspection_report_child(frm) {
+    // Call the server-side method to get SKU details
     frappe.call({
         method: 'buying_house.buying_house.doctype.util.get_sku_details', // Replace with the actual path
         args: {
@@ -147,7 +148,24 @@ function fill_inspection_report_child(frm) {
                     let child = frm.add_child('inspection_report_item');
                     child.sku = row.sku;
                     child.item_description = row.item_description;
-                    child.size = row.size;
+                    child.no_of_ctn = row.no_of_ctn || 0; // Default to 0 if undefined
+                    child.no_of_doz = row.no_of_doz || 0; // Default to 0 if undefined
+                    child.pcs = row.pcs || 0; // Default to 0 if undefined
+                    child.s = row.s || 0; // Default to 0 if undefined
+                    child.m = row.m || 0; // Default to 0 if undefined
+                    child.l = row.l || 0; // Default to 0 if undefined
+                    child.xl = row.xl || 0; // Default to 0 if undefined
+                    child['2xl'] = row['2xl'] || 0; // Use bracket notation for keys starting with a number
+                    child['3xl'] = row['3xl'] || 0;
+                    child['4xl'] = row['4xl'] || 0;
+                    child['5xl'] = row['5xl'] || 0;
+                    child['6xl'] = row['6xl'] || 0;
+                    child['7xl'] = row['7xl'] || 0;
+                    child['8xl'] = row['8xl'] || 0;
+                    child['9xl'] = row['9xl'] || 0;
+                    child['10xl'] = row['10xl'] || 0;
+                    child['11xl'] = row['11xl'] || 0;
+                    child['12xl'] = row['12xl'] || 0;
                 });
 
                 // Refresh the child table to display the new data
@@ -155,6 +173,9 @@ function fill_inspection_report_child(frm) {
             } else {
                 frappe.msgprint(__('No SKU Details found for the given Customer PO.'));
             }
+        },
+        error: function (error) {
+            frappe.msgprint(__('An error occurred while retrieving SKU details: ' + error.message));
         }
     });
 }

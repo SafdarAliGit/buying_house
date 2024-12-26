@@ -9,7 +9,7 @@ def get_sku_details(customer_po_name):
     # Fetch the required data from the 'SKU Detail' doctype with a condition
     results = frappe.db.get_all(
         'SKU Detail',
-        fields=['sku', 'item_description', 'size'],
+        fields=['sku', 'item_description', 'no_of_ctn', 'no_of_doz', 'pcs','s','m','l','xl','2xl','3xl','4xl','5xl','6xl','7xl','8xl','9xl','10xl','11xl','12xl'],
         filters={'parent': customer_po_name}  # Filter by parent field
     )
     return results
