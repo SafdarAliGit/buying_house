@@ -74,10 +74,14 @@ frappe.ui.form.on('Inspection Report', {
         fill_inspection_report_child(frm);
     },
     aql_level: function (frm) {
-        fetch_min_max_values(frm);
+        fetch_min_1_values(frm);
+    },
+    aql_level_minor:function (frm){
+        fetch_min_2_values(frm);
     },
     inspection_levels: function (frm) {
-        fetch_min_max_values(frm);
+        fetch_min_1_values(frm);
+        fetch_min_2_values(frm);
     }
 });
 
@@ -186,7 +190,7 @@ function fill_inspection_report_child(frm) {
 }
 
 
-function fetch_min_max_values(frm) {
+function fetch_min_1_values(frm) {
     frappe.call({
         method: 'buying_house.buying_house.doctype.util.fetch_min_max_values', // Replace with the actual path
         args: {
@@ -199,7 +203,26 @@ function fetch_min_max_values(frm) {
             if (response.message) {
                 console.log(response.message);
                 frm.set_value("aql_minor", response.message.min_value);
-                frm.set_value("aql_major", response.message.max_value);
+            } else {
+                frappe.msgprint(__('No Data Found'));
+            }
+        }
+    });
+}
+
+function fetch_min_2_values(frm) {
+    frappe.call({
+        method: 'buying_house.buying_house.doctype.util.fetch_min_max_values', // Replace with the actual path
+        args: {
+            inspection_type: frm.doc.inspection_type,
+            inspection_levels: frm.doc.inspection_levels,
+            total_pcs: frm.doc.total_pcs,
+            aql_level: frm.doc.aql_level_minor,
+        },
+        callback: function (response) {
+            if (response.message) {
+                console.log(response.message);
+                frm.set_value("aql_minor_pcs", response.message.min_value);
             } else {
                 frappe.msgprint(__('No Data Found'));
             }
