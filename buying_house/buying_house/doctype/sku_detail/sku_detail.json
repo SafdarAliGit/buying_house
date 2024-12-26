@@ -11,7 +11,25 @@
   "size",
   "no_of_ctn",
   "no_of_doz",
-  "pcs"
+  "pcs",
+  "garment_sizes_section",
+  "s",
+  "m",
+  "l",
+  "xl",
+  "2xl",
+  "column_break_uht5i",
+  "3xl",
+  "4xl",
+  "5xl",
+  "6xl",
+  "7xl",
+  "column_break_qwect",
+  "8xl",
+  "9xl",
+  "10xl",
+  "11xl",
+  "12xl"
  ],
  "fields": [
   {
@@ -50,12 +68,115 @@
    "fieldtype": "Int",
    "in_list_view": 1,
    "label": "No Of Doz"
+  },
+  {
+   "fieldname": "garment_sizes_section",
+   "fieldtype": "Section Break",
+   "label": "Garment Sizes"
+  },
+  {
+   "default": "0",
+   "fieldname": "s",
+   "fieldtype": "Check",
+   "label": "S"
+  },
+  {
+   "default": "0",
+   "fieldname": "m",
+   "fieldtype": "Check",
+   "label": "M"
+  },
+  {
+   "default": "0",
+   "fieldname": "l",
+   "fieldtype": "Check",
+   "label": "L"
+  },
+  {
+   "default": "0",
+   "fieldname": "xl",
+   "fieldtype": "Check",
+   "label": "XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "2xl",
+   "fieldtype": "Check",
+   "label": "2XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "3xl",
+   "fieldtype": "Check",
+   "label": "3XL"
+  },
+  {
+   "fieldname": "column_break_uht5i",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qwect",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "4xl",
+   "fieldtype": "Check",
+   "label": "4XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "5xl",
+   "fieldtype": "Check",
+   "label": "5XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "6xl",
+   "fieldtype": "Check",
+   "label": "6XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "7xl",
+   "fieldtype": "Check",
+   "label": "7XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "8xl",
+   "fieldtype": "Check",
+   "label": "8XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "9xl",
+   "fieldtype": "Check",
+   "label": "9XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "10xl",
+   "fieldtype": "Check",
+   "label": "10XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "11xl",
+   "fieldtype": "Check",
+   "label": "11XL"
+  },
+  {
+   "default": "0",
+   "fieldname": "12xl",
+   "fieldtype": "Check",
+   "label": "12XL"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-18 20:12:29.648669",
+ "modified": "2024-12-26 15:31:31.239999",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "SKU Detail",
