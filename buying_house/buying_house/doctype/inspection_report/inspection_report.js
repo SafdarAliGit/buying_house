@@ -76,7 +76,7 @@ frappe.ui.form.on('Inspection Report', {
     aql_level: function (frm) {
         fetch_min_1_values(frm);
     },
-    aql_level_minor:function (frm){
+    aql_level_minor: function (frm) {
         fetch_min_2_values(frm);
     },
     inspection_levels: function (frm) {
@@ -202,7 +202,7 @@ function fetch_min_1_values(frm) {
         callback: function (response) {
             if (response.message) {
                 frm.set_value("aql_minor", response.message.min_value);
-                frm.set_value("sample_size",response.message.qty);
+                frm.set_value("sample_size", response.message.qty);
             } else {
                 frappe.msgprint(__('No Data Found'));
             }
@@ -222,7 +222,7 @@ function fetch_min_2_values(frm) {
         callback: function (response) {
             if (response.message) {
                 frm.set_value("aql_minor_pcs", response.message.min_value);
-                frm.set_value("sample_size",response.message.qty);
+                frm.set_value("sample_size", response.message.qty);
             } else {
                 frappe.msgprint(__('No Data Found'));
             }
@@ -230,3 +230,31 @@ function fetch_min_2_values(frm) {
     });
 }
 
+frappe.ui.form.on('Inspection Report Item', {
+    pcs: function (frm, cdt, cdn) {
+        calculate_total_pcs(frm);
+    },
+    inspection_report_item_remove: function (frm, cdt, cdn) {
+        calculate_total_pcs(frm);
+        calculate_total_no_of_ctn(frm);
+    },
+    no_of_ctn:function (frm,cdt,cdn){
+        calculate_total_no_of_ctn(frm);
+    }
+});
+
+function calculate_total_pcs(frm) {
+    var total_pcs = 0;
+    $.each(frm.doc.inspection_report_item || [], function (i, d) {
+        total_pcs += flt(d.pcs);
+    });
+    frm.set_value("total_pcs", total_pcs);
+}
+
+function calculate_total_no_of_ctn(frm) {
+    var total_no_of_ctn = 0;
+    $.each(frm.doc.inspection_report_item || [], function (i, d) {
+        total_no_of_ctn += flt(d.no_of_ctn);
+    });
+    frm.set_value("no_of_ctn", total_no_of_ctn);
+}
