@@ -65,7 +65,7 @@ def fetch_min_max_values(**args):
             & (levels_master_items.level_value == args.get("aql_level"))
 
         )
-        .select(levels_master_items.min_value, levels_master_items.max_value)
+        .select(levels_master_items.min_value, levels_master_items.max_value,levels_master_items.qty)
         .limit(1)  # Fetch only the first record
     )
 

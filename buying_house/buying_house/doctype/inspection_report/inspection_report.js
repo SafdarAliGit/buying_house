@@ -201,8 +201,8 @@ function fetch_min_1_values(frm) {
         },
         callback: function (response) {
             if (response.message) {
-                console.log(response.message);
                 frm.set_value("aql_minor", response.message.min_value);
+                frm.set_value("sample_size",response.message.qty);
             } else {
                 frappe.msgprint(__('No Data Found'));
             }
@@ -221,8 +221,8 @@ function fetch_min_2_values(frm) {
         },
         callback: function (response) {
             if (response.message) {
-                console.log(response.message);
                 frm.set_value("aql_minor_pcs", response.message.min_value);
+                frm.set_value("sample_size",response.message.qty);
             } else {
                 frappe.msgprint(__('No Data Found'));
             }
