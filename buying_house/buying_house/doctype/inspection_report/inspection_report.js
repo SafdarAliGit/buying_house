@@ -256,5 +256,5 @@ function calculate_total_no_of_ctn(frm) {
     $.each(frm.doc.inspection_report_item || [], function (i, d) {
         total_no_of_ctn += flt(d.no_of_ctn);
     });
-    frm.set_value("no_of_ctn", total_no_of_ctn);
+    frm.set_value("total_no_of_ctn", total_no_of_ctn);
 }
