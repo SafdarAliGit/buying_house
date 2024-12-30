@@ -34,6 +34,15 @@ frappe.ui.form.on('SKU Detail', {
     }
 })
 
+frappe.ui.form.on('SKU Detail Home', {
+    qty_pcs: function (frm) {
+        calculate_totals_home(frm);
+    },
+    qty_ctn: function (frm) {
+        calculate_totals_home(frm);
+    }
+});
+
 function fetch_photo(frm) {
     if (frm.doc.customer_logo) {
         frappe.db.get_value('Customer PO', frm.doc.name, 'customer_logo', (r) => {
@@ -77,6 +86,25 @@ function calculate_totals(frm) {
     frm.set_value('total_ctn', totalCtn);
     frm.set_value('total_dozens', totalDozens);
     frm.set_value('total_pcs', totalPcs);
+}
+
+function calculate_totals_home(frm) {
+    // Initialize totals
+    let total_qty_ctn = 0;
+    let total_qty_pcs = 0;
+    let total_pcs = 0;
+    total_pcs = frm.doc.total_pcs || 0;
+    // Iterate through the child table rows
+    if (frm.doc.sku_detail_home) {
+        frm.doc.sku_detail_home.forEach(row => {
+            total_qty_ctn += row.qty_ctn || 0;
+            total_qty_pcs += row.qty_pcs || 0;
+        });
+    }
+    // Assign totals to the parent fields
+    frm.set_value('total_qty_ctn', total_qty_ctn);
+    frm.set_value('total_qty_pcs', total_qty_pcs);
+    frm.set_value('sum_pcs', total_qty_pcs + total_pcs);
 }
 
 // Function to update `pcs` for a specific row when `no_of_ctn` or `no_of_doz` changes
