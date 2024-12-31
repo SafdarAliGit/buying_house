@@ -17,25 +17,38 @@ frappe.ui.form.on('Inspection Report', {
         fetch_photo(frm);
     },
     upload_multiple_images: function (frm) {
-        // Prompt the user with a Select field for the upload label
+        // Prompt the user with a dialog for both select and open-ended input
         frappe.prompt(
-            {
-                fieldname: 'upload_label',
-                fieldtype: 'Select',
-                label: 'Select Upload Label',
-                reqd: 1, // Make it required
-                options: [
-                    "Unlock",
-                    "Carton Images",
-                    "Packaging Images",
-                    "Measurements",
-                    "Print",
-                    "Faults"
-                ].join('\n') // Add options as newline-separated values
-            },
+            [
+                {
+                    fieldname: 'upload_label',
+                    fieldtype: 'Select',
+                    label: 'Select Upload Label',
+                    reqd: 0, // Make it optional, priority will be given to the open-ended input
+                    options: [
+                        "Unlock",
+                        "Carton Images",
+                        "Packaging Images",
+                        "Measurements",
+                        "Print",
+                        "Faults"
+                    ].join('\n') // Add options as newline-separated values
+                },
+                {
+                    fieldname: 'custom_upload_label',
+                    fieldtype: 'Data',
+                    label: 'Custom Upload Label',
+                    reqd: 0 // Optional field for user to input their own label
+                }
+            ],
             (values) => {
-                // Store the upload_label value selected by the user
-                let upload_label = values.upload_label;
+                // Check if the custom_upload_label field has a value
+                let upload_label = values.custom_upload_label || values.upload_label;
+
+                if (!upload_label) {
+                    frappe.msgprint(__('Please select or enter an upload label.'));
+                    return;
+                }
 
                 // Proceed with the file uploader
                 new frappe.ui.FileUploader({
@@ -48,10 +61,10 @@ frappe.ui.form.on('Inspection Report', {
                         allowed_file_types: [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
                     },
                     on_success(file) {
-                        // Add the file and same label to the child table
+                        // Add the file and label to the child table
                         let child = frm.add_child('inspection_upload');
                         child.image = file.file_url; // Set file URL
-                        child.upload_label = upload_label; // Set the same label for all rows
+                        child.upload_label = upload_label; // Set the label (custom or selected)
                         frm.refresh_field('inspection_upload'); // Refresh child table
                         frappe.msgprint(__('Successfully uploaded: {0}', [file.file_name]));
                     }
@@ -142,43 +155,69 @@ function fill_inspection_report_child(frm) {
         },
         callback: function (response) {
             if (response.message) {
-                const data = response.message;
-
-                // Clear existing rows in the child table
-                frm.clear_table('inspection_report_item');
                 let total_no_of_ctn = 0;
                 let total_pcs = 0;
-                // Add rows to the child table
-                data.forEach(row => {
-                    let child = frm.add_child('inspection_report_item');
-                    child.sku = row.sku;
-                    child.item_description = row.item_description;
-                    child.no_of_ctn = row.no_of_ctn || 0;
-                    total_no_of_ctn += row.no_of_ctn || 0;// Default to 0 if undefined
-                    child.no_of_doz = row.no_of_doz || 0; // Default to 0 if undefined
-                    child.pcs = row.pcs || 0;
-                    total_pcs += row.pcs || 0;// Default to 0 if undefined
-                    child.s = row.s || 0; // Default to 0 if undefined
-                    child.m = row.m || 0; // Default to 0 if undefined
-                    child.l = row.l || 0; // Default to 0 if undefined
-                    child.xl = row.xl || 0; // Default to 0 if undefined
-                    child['2xl'] = row['2xl'] || 0; // Use bracket notation for keys starting with a number
-                    child['3xl'] = row['3xl'] || 0;
-                    child['4xl'] = row['4xl'] || 0;
-                    child['5xl'] = row['5xl'] || 0;
-                    child['6xl'] = row['6xl'] || 0;
-                    child['7xl'] = row['7xl'] || 0;
-                    child['8xl'] = row['8xl'] || 0;
-                    child['9xl'] = row['9xl'] || 0;
-                    child['10xl'] = row['10xl'] || 0;
-                    child['11xl'] = row['11xl'] || 0;
-                    child['12xl'] = row['12xl'] || 0;
-                });
+                let total_qty_ctn = 0;
+                let total_qty_pcs = 0;
+                const sku_detail = response.message.sku_detail;
+                // Clear existing rows in the child table
+                if (sku_detail) {
+                    frm.clear_table('inspection_report_item');
+                    // Add rows to the child table
+                    sku_detail.forEach(row => {
+                        let child = frm.add_child('inspection_report_item');
+                        child.sku = row.sku;
+                        child.item_description = row.item_description;
+                        child.no_of_ctn = row.no_of_ctn || 0;
+                        total_no_of_ctn += row.no_of_ctn || 0;// Default to 0 if undefined
+                        child.no_of_doz = row.no_of_doz || 0; // Default to 0 if undefined
+                        child.pcs = row.pcs || 0;
+                        total_pcs += row.pcs || 0;// Default to 0 if undefined
+                        child.s = row.s || 0; // Default to 0 if undefined
+                        child.m = row.m || 0; // Default to 0 if undefined
+                        child.l = row.l || 0; // Default to 0 if undefined
+                        child.xl = row.xl || 0; // Default to 0 if undefined
+                        child['2xl'] = row['2xl'] || 0; // Use bracket notation for keys starting with a number
+                        child['3xl'] = row['3xl'] || 0;
+                        child['4xl'] = row['4xl'] || 0;
+                        child['5xl'] = row['5xl'] || 0;
+                        child['6xl'] = row['6xl'] || 0;
+                        child['7xl'] = row['7xl'] || 0;
+                        child['8xl'] = row['8xl'] || 0;
+                        child['9xl'] = row['9xl'] || 0;
+                        child['10xl'] = row['10xl'] || 0;
+                        child['11xl'] = row['11xl'] || 0;
+                        child['12xl'] = row['12xl'] || 0;
+                    });
 
-                // Refresh the child table to display the new data
-                frm.refresh_field('inspection_report_item');
-                frm.set_value("total_no_of_ctn", total_no_of_ctn);
-                frm.set_value("total_pcs", total_pcs);
+                    // Refresh the child table to display the new data
+                    frm.refresh_field('inspection_report_item');
+                    frm.set_value("total_no_of_ctn", total_no_of_ctn);
+                    frm.set_value("total_pcs", total_pcs);
+                }
+
+                const sku_detail_home_item = response.message.sku_detail_home_item;
+                if (sku_detail_home_item) {
+                    frm.clear_table('sku_detail_home_item');
+                    // Add rows to the child table
+                    sku_detail_home_item.forEach(row => {
+                        let child = frm.add_child('sku_detail_home_item');
+                        child.sku = row.sku;
+                        child.product_type = row.product_type;
+                        child.size = row.size;
+                        child.qty_ctn = row.qty_ctn || 0;
+                        total_qty_ctn += row.qty_ctn || 0;
+                        child.qty_pcs = row.qty_pcs || 0;
+                        total_qty_pcs += row.qty_pcs || 0;
+                    });
+
+                    // Refresh the child table to display the new data
+                    frm.refresh_field('sku_detail_home_item');
+                    frm.set_value("total_qty_ctn", total_qty_ctn);
+                    frm.set_value("total_qty_pcs", total_qty_pcs);
+                    frm.set_value("sum_pcs", total_qty_pcs + total_pcs);
+                }
+
             } else {
                 frappe.msgprint(__('No SKU Details found for the given Customer PO.'));
             }
@@ -238,8 +277,18 @@ frappe.ui.form.on('Inspection Report Item', {
         calculate_total_pcs(frm);
         calculate_total_no_of_ctn(frm);
     },
-    no_of_ctn:function (frm,cdt,cdn){
+    no_of_ctn: function (frm, cdt, cdn) {
         calculate_total_no_of_ctn(frm);
+    }
+});
+
+
+frappe.ui.form.on('SKU Detail Home Item', {
+    qty_pcs: function (frm) {
+        calculate_totals_home_item(frm);
+    },
+    qty_ctn: function (frm) {
+        calculate_totals_home_item(frm);
     }
 });
 
@@ -257,4 +306,23 @@ function calculate_total_no_of_ctn(frm) {
         total_no_of_ctn += flt(d.no_of_ctn);
     });
     frm.set_value("total_no_of_ctn", total_no_of_ctn);
+}
+
+function calculate_totals_home_item(frm) {
+    // Initialize totals
+    let total_qty_ctn = 0;
+    let total_qty_pcs = 0;
+    let total_pcs = 0;
+    total_pcs = frm.doc.total_pcs || 0;
+    // Iterate through the child table rows
+    if (frm.doc.sku_detail_home_item) {
+        frm.doc.sku_detail_home_item.forEach(row => {
+            total_qty_ctn += row.qty_ctn || 0;
+            total_qty_pcs += row.qty_pcs || 0;
+        });
+    }
+    // Assign totals to the parent fields
+    frm.set_value('total_qty_ctn', total_qty_ctn);
+    frm.set_value('total_qty_pcs', total_qty_pcs);
+    frm.set_value('sum_pcs', total_qty_pcs + total_pcs);
 }

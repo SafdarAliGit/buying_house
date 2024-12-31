@@ -6,13 +6,31 @@ from frappe.query_builder.functions import Coalesce
 
 @frappe.whitelist()
 def get_sku_details(customer_po_name):
-    # Fetch the required data from the 'SKU Detail' doctype with a condition
-    results = frappe.db.get_all(
+    # Fetch data from the 'SKU Detail' doctype
+    sku_detail_results = frappe.db.get_all(
         'SKU Detail',
-        fields=['sku', 'item_description', 'no_of_ctn', 'no_of_doz', 'pcs','s','m','l','xl','2xl','3xl','4xl','5xl','6xl','7xl','8xl','9xl','10xl','11xl','12xl'],
+        fields=[
+            'sku', 'item_description', 'no_of_ctn', 'no_of_doz', 'pcs',
+            's', 'm', 'l', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl',
+            '7xl', '8xl', '9xl', '10xl', '11xl', '12xl'
+        ],
         filters={'parent': customer_po_name}  # Filter by parent field
     )
-    return results
+
+    # Fetch data from the 'SKU Detail Item' doctype
+    sku_detail_home_item_results = frappe.db.get_all(
+        'SKU Detail Home',
+        fields=['sku', 'product_type', 'size', 'qty_ctn', 'qty_pcs'],
+        filters={'parent': customer_po_name}  # Filter by parent field
+    )
+
+    # Combine the results into a dictionary
+    combined_results = {
+        'sku_detail': sku_detail_results,  # Data from 'SKU Detail'
+        'sku_detail_home_item': sku_detail_home_item_results  # Data from 'SKU Detail Item'
+    }
+
+    return combined_results
 
 
 @frappe.whitelist()
@@ -44,8 +62,6 @@ def capture(file=None):
     return file_doc
 
 
-
-
 @frappe.whitelist()
 def fetch_min_max_values(**args):
     # Define the main table and child table
@@ -65,7 +81,7 @@ def fetch_min_max_values(**args):
             & (levels_master_items.level_value == args.get("aql_level"))
 
         )
-        .select(levels_master_items.min_value, levels_master_items.max_value,levels_master_items.qty)
+        .select(levels_master_items.min_value, levels_master_items.max_value, levels_master_items.qty)
         .limit(1)  # Fetch only the first record
     )
 
@@ -75,4 +91,4 @@ def fetch_min_max_values(**args):
     # Return the result
     return result[0] if result else None
 
-  # Use comparison operators
+# Use comparison operators
