@@ -48,6 +48,8 @@
   "total_qty_pcs",
   "column_break_dhtd7",
   "sum_pcs",
+  "section_break_uxoaj",
+  "fault_item",
   "section_break_z4fqi",
   "inspection",
   "column_break_woa1p",
@@ -459,12 +461,22 @@
    "fieldtype": "Int",
    "label": "SUM PCS",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_uxoaj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "fault_item",
+   "fieldtype": "Table",
+   "label": "Fault Item",
+   "options": "Fault Item"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-12-31 09:15:41.706150",
+ "modified": "2025-01-09 16:05:13.636484",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
