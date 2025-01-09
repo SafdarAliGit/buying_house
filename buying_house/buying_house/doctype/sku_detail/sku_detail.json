@@ -39,9 +39,10 @@
   },
   {
    "fieldname": "item_description",
-   "fieldtype": "Small Text",
+   "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Item Description"
+   "label": "Item Description",
+   "options": "Item"
   },
   {
    "fieldname": "no_of_ctn",
@@ -168,7 +169,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-12-26 16:05:17.377538",
+ "modified": "2025-01-09 14:50:40.589014",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "SKU Detail",

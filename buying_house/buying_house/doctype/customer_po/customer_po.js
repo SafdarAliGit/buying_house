@@ -3,6 +3,20 @@
 
 frappe.ui.form.on('Customer PO', {
     refresh: function (frm) {
+        frm.set_query('item_description', 'sku_detail', function (doc, cdt, cdn) {
+            return {
+                filters: [
+                    ["Item", "item_group", "in", ["Garments"]]
+                ]
+            };
+        });
+        frm.set_query('product_type', 'sku_detail_home', function (doc, cdt, cdn) {
+            return {
+                filters: [
+                    ["Item", "item_group", "in", ["Home Textile"]]
+                ]
+            };
+        });
         fetch_photo(frm);
         calculate_totals(frm);
 
