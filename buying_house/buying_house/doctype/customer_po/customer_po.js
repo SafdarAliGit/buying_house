@@ -25,6 +25,8 @@ frappe.ui.form.on('Customer PO', {
             frappe.new_doc('Inspection Report');
         }, __('Actions'));
 
+
+
     },
     customer_name: function (frm) {
         frm.set_value('customer_name_abbrevation', getAbbreviation(frm.doc.customer_name));

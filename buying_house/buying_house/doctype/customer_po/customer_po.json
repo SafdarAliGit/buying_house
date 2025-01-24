@@ -181,8 +181,13 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2024-12-30 20:15:25.229522",
+ "links": [
+  {
+   "link_doctype": "PO Specs",
+   "link_fieldname": "customer_po"
+  }
+ ],
+ "modified": "2025-01-24 21:09:20.972147",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Customer PO",

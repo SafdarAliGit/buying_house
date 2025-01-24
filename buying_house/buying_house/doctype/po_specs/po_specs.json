@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:POSP-{item_description}-{size}-{customer_po}",
+ "creation": "2025-01-24 20:42:32.832783",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_description",
+  "column_break_4bidl",
+  "size",
+  "column_break_xklzq",
+  "customer_po",
+  "section_break_jojje",
+  "po_specs_item"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Link",
+   "label": "Item Description ",
+   "options": "Item"
+  },
+  {
+   "fieldname": "size",
+   "fieldtype": "Select",
+   "label": "Size",
+   "options": "S\nM\nL\nXL\n2XL\n3XL\n4XL\n5XL\n6XL\n7XL\n8XL\n9XL\n10XL\n11XL\n12XL"
+  },
+  {
+   "fieldname": "customer_po",
+   "fieldtype": "Link",
+   "label": "Customer PO",
+   "options": "Customer PO"
+  },
+  {
+   "fieldname": "column_break_4bidl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_xklzq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_jojje",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "po_specs_item",
+   "fieldtype": "Table",
+   "label": "PO Specs Item",
+   "options": "PO Specs Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-24 21:13:03.482546",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "PO Specs",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

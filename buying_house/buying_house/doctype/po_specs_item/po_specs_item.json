@@ -1,0 +1,58 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-01-24 20:51:32.249195",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "specification",
+  "standard_value",
+  "required_value",
+  "diff"
+ ],
+ "fields": [
+  {
+   "fieldname": "specification",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Specification",
+   "options": "Specifications"
+  },
+  {
+   "default": "0",
+   "fetch_from": "specification.standard_value",
+   "fieldname": "standard_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Standard Value",
+   "read_only": 1
+  },
+  {
+   "fieldname": "required_value",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Required Value"
+  },
+  {
+   "default": "0",
+   "fieldname": "diff",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Diff",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-01-24 20:54:52.976193",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "PO Specs Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

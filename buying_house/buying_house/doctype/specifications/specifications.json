@@ -1,0 +1,57 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:specification",
+ "creation": "2025-01-24 20:46:36.065584",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "specification",
+  "column_break_nbrmu",
+  "standard_value"
+ ],
+ "fields": [
+  {
+   "fieldname": "specification",
+   "fieldtype": "Data",
+   "label": "Specification",
+   "unique": 1
+  },
+  {
+   "fieldname": "standard_value",
+   "fieldtype": "Data",
+   "label": "Standard Value"
+  },
+  {
+   "fieldname": "column_break_nbrmu",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-24 20:48:00.039471",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "Specifications",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
