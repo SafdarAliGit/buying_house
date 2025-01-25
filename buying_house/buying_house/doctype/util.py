@@ -91,4 +91,18 @@ def fetch_min_max_values(**args):
     # Return the result
     return result[0] if result else None
 
+
 # Use comparison operators
+@frappe.whitelist()
+def get_specs_template(parent_name):
+    child = frappe.qb.DocType("PO Specs Template Item")
+    specs = (
+        frappe.qb.from_(child)
+        .select(
+            child.specification,
+            child.standard_value
+        )
+        .where(child.parent == parent_name)
+    ).run(as_dict=True)
+
+    return specs

@@ -13,6 +13,8 @@
   "size",
   "column_break_xklzq",
   "customer_po",
+  "column_break_gd9qk",
+  "po_specs_template",
   "section_break_jojje",
   "po_specs_item"
  ],
@@ -52,11 +54,21 @@
    "fieldtype": "Table",
    "label": "PO Specs Item",
    "options": "PO Specs Item"
+  },
+  {
+   "fieldname": "column_break_gd9qk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "po_specs_template",
+   "fieldtype": "Link",
+   "label": "Template",
+   "options": "PO Specs Template"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-24 21:13:03.482546",
+ "modified": "2025-01-25 19:26:05.773011",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "PO Specs",
