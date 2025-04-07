@@ -19,42 +19,37 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Spec Name",
-   "options": "Specifications",
-   "read_only": 1
+   "options": "Specifications"
   },
   {
    "fieldname": "2xl",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "2XL",
-   "read_only": 1
+   "label": "2XL"
   },
   {
    "fieldname": "3xl",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "3XL",
-   "read_only": 1
+   "label": "3XL"
   },
   {
    "fieldname": "4xl",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "4XL",
-   "read_only": 1
+   "label": "4XL"
   },
   {
    "fieldname": "5xl",
    "fieldtype": "Float",
    "in_list_view": 1,
-   "label": "5XL",
-   "read_only": 1
+   "label": "5XL"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-04-06 14:55:12.423545",
+ "modified": "2025-04-07 17:17:17.419717",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Item Spec2",
