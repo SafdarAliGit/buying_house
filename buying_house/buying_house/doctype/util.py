@@ -106,3 +106,24 @@ def get_specs_template(parent_name):
     ).run(as_dict=True)
 
     return specs
+
+@frappe.whitelist()
+def get_item_specification_details(item_code):
+    parent_name = frappe.db.get_value("Item Specification", {"item": item_code}, "name")
+
+    if not parent_name:
+        return {
+            "item_spec1": [],
+            "item_spec2": [],
+            "item_spec3": [],
+        }
+
+    item_spec1 = frappe.db.sql("SELECT * FROM `tabItem Spec1` WHERE parent=%s", parent_name, as_dict=True)
+    item_spec2 = frappe.db.sql("SELECT * FROM `tabItem Spec2` WHERE parent=%s", parent_name, as_dict=True)
+    item_spec3 = frappe.db.sql("SELECT * FROM `tabItem Spec3` WHERE parent=%s", parent_name, as_dict=True)
+
+    return {
+        "item_spec1": item_spec1,
+        "item_spec2": item_spec2,
+        "item_spec3": item_spec3,
+    }

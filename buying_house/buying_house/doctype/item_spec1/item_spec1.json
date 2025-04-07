@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-06 14:12:11.709315",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "spec_name",
+  "s",
+  "m",
+  "l",
+  "xl"
+ ],
+ "fields": [
+  {
+   "fieldname": "spec_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spec Name",
+   "options": "Specifications"
+  },
+  {
+   "fieldname": "s",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "S"
+  },
+  {
+   "fieldname": "m",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "M"
+  },
+  {
+   "fieldname": "l",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L"
+  },
+  {
+   "fieldname": "xl",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "XL"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-04-06 14:12:11.709315",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "Item Spec1",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

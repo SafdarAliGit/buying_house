@@ -1,0 +1,66 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-06 14:21:37.376033",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "spec_name",
+  "s",
+  "m",
+  "l",
+  "xl"
+ ],
+ "fields": [
+  {
+   "fieldname": "spec_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spec Name",
+   "options": "Specifications",
+   "read_only": 1
+  },
+  {
+   "fieldname": "s",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "S",
+   "read_only": 1
+  },
+  {
+   "fieldname": "m",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "M",
+   "read_only": 1
+  },
+  {
+   "fieldname": "l",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L",
+   "read_only": 1
+  },
+  {
+   "fieldname": "xl",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "XL",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-04-06 14:54:45.881423",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "CPO Item Spec1",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

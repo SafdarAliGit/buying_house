@@ -33,7 +33,15 @@
   "column_break_l5dj0",
   "total_qty_pcs",
   "column_break_dmmmu",
-  "sum_pcs"
+  "sum_pcs",
+  "section_break_kctx7",
+  "item",
+  "section_break_omrkk",
+  "cpo_item_spec1",
+  "section_break_gvjm3",
+  "cpo_item_spec2",
+  "section_break_ztxhv",
+  "cpo_item_spec3"
  ],
  "fields": [
   {
@@ -177,6 +185,47 @@
   {
    "fieldname": "column_break_dmmmu",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_kctx7",
+   "fieldtype": "Section Break",
+   "label": "Item Specifications"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_omrkk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cpo_item_spec1",
+   "fieldtype": "Table",
+   "label": "Item Spec1",
+   "options": "CPO Item Spec1"
+  },
+  {
+   "fieldname": "section_break_gvjm3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cpo_item_spec2",
+   "fieldtype": "Table",
+   "label": "Item Spec2",
+   "options": "CPO Item Spec2"
+  },
+  {
+   "fieldname": "section_break_ztxhv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cpo_item_spec3",
+   "fieldtype": "Table",
+   "label": "Item Spec3",
+   "options": "CPO Item Spec3"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -187,7 +236,7 @@
    "link_fieldname": "customer_po"
   }
  ],
- "modified": "2025-01-24 21:09:20.972147",
+ "modified": "2025-04-06 15:00:25.121909",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Customer PO",

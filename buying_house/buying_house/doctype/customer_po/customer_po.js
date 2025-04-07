@@ -33,7 +33,48 @@ frappe.ui.form.on('Customer PO', {
     },
     validate: function (frm) {
         calculate_totals(frm); // Ensure totals are updated before saving
+    },
+    item: function(frm) {
+        if (frm.doc.item) {
+            frappe.call({
+                method: 'buying_house.buying_house.doctype.util.get_item_specification_details', // adjust to your method path
+                args: {
+                    item_code: frm.doc.item
+                },
+                callback: function(r) {
+                    if (r.message) {
+                        // Clear existing rows
+                        frm.clear_table('cpo_item_spec1');
+                        frm.clear_table('cpo_item_spec2');
+                        frm.clear_table('cpo_item_spec3');
+
+                        // Populate cpo_item_spec1
+                        r.message.item_spec1.forEach(row => {
+                            let child = frm.add_child('cpo_item_spec1');
+                            Object.assign(child, row); // or manually set fields
+                        });
+
+                        // Populate cpo_item_spec2
+                        r.message.item_spec2.forEach(row => {
+                            let child = frm.add_child('cpo_item_spec2');
+                            Object.assign(child, row);
+                        });
+
+                        // Populate cpo_item_spec3
+                        r.message.item_spec3.forEach(row => {
+                            let child = frm.add_child('cpo_item_spec3');
+                            Object.assign(child, row);
+                        });
+
+                        frm.refresh_field('cpo_item_spec1');
+                        frm.refresh_field('cpo_item_spec2');
+                        frm.refresh_field('cpo_item_spec3');
+                    }
+                }
+            });
+        }
     }
+
 });
 
 frappe.ui.form.on('SKU Detail', {
