@@ -127,3 +127,23 @@ def get_item_specification_details(item_code):
         "item_spec2": item_spec2,
         "item_spec3": item_spec3,
     }
+@frappe.whitelist()
+def get_item_specification_details_for_inspection_report(customer_po):
+    parent_name = frappe.get_doc("Customer PO", customer_po).name
+
+    if not parent_name:
+        return {
+            "item_spec1": [],
+            "item_spec2": [],
+            "item_spec3": [],
+        }
+
+    item_spec1 = frappe.db.sql("SELECT * FROM `tabCPO Item Spec1` WHERE parent=%s", parent_name, as_dict=True)
+    item_spec2 = frappe.db.sql("SELECT * FROM `tabCPO Item Spec2` WHERE parent=%s", parent_name, as_dict=True)
+    item_spec3 = frappe.db.sql("SELECT * FROM `tabCPO Item Spec3` WHERE parent=%s", parent_name, as_dict=True)
+
+    return {
+        "item_spec1": item_spec1,
+        "item_spec2": item_spec2,
+        "item_spec3": item_spec3,
+    }

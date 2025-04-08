@@ -1,0 +1,172 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-04-08 06:32:36.840641",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "spec_name",
+  "s",
+  "s1",
+  "s2",
+  "s3",
+  "s4",
+  "column_break_qkcwl",
+  "m",
+  "m1",
+  "m2",
+  "m3",
+  "m4",
+  "column_break_8yxfw",
+  "l",
+  "l1",
+  "l2",
+  "l3",
+  "l4",
+  "column_break_4ybpw",
+  "xl",
+  "xl1",
+  "xl2",
+  "xl3",
+  "xl4"
+ ],
+ "fields": [
+  {
+   "fieldname": "spec_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Spec Name",
+   "options": "Specifications"
+  },
+  {
+   "fieldname": "s",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "S"
+  },
+  {
+   "fieldname": "m",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "M"
+  },
+  {
+   "fieldname": "l",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "L"
+  },
+  {
+   "fieldname": "xl",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "XL"
+  },
+  {
+   "fieldname": "s1",
+   "fieldtype": "Data",
+   "label": "S1"
+  },
+  {
+   "fieldname": "s2",
+   "fieldtype": "Data",
+   "label": "S2"
+  },
+  {
+   "fieldname": "s3",
+   "fieldtype": "Data",
+   "label": "S3"
+  },
+  {
+   "fieldname": "s4",
+   "fieldtype": "Data",
+   "label": "S4"
+  },
+  {
+   "fieldname": "m1",
+   "fieldtype": "Data",
+   "label": "M1"
+  },
+  {
+   "fieldname": "m2",
+   "fieldtype": "Data",
+   "label": "M2"
+  },
+  {
+   "fieldname": "m3",
+   "fieldtype": "Data",
+   "label": "M3"
+  },
+  {
+   "fieldname": "m4",
+   "fieldtype": "Data",
+   "label": "M4"
+  },
+  {
+   "fieldname": "l1",
+   "fieldtype": "Data",
+   "label": "L1"
+  },
+  {
+   "fieldname": "l2",
+   "fieldtype": "Data",
+   "label": "L2"
+  },
+  {
+   "fieldname": "l3",
+   "fieldtype": "Data",
+   "label": "L3"
+  },
+  {
+   "fieldname": "l4",
+   "fieldtype": "Data",
+   "label": "L4"
+  },
+  {
+   "fieldname": "xl1",
+   "fieldtype": "Data",
+   "label": "XL1"
+  },
+  {
+   "fieldname": "xl2",
+   "fieldtype": "Data",
+   "label": "XL2"
+  },
+  {
+   "fieldname": "xl3",
+   "fieldtype": "Data",
+   "label": "XL3"
+  },
+  {
+   "fieldname": "xl4",
+   "fieldtype": "Data",
+   "label": "XL4"
+  },
+  {
+   "fieldname": "column_break_qkcwl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_8yxfw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_4ybpw",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2025-04-08 14:56:58.337835",
+ "modified_by": "Administrator",
+ "module": "Buying House",
+ "name": "IR Item Spec1",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

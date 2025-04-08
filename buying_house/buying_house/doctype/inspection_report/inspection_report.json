@@ -83,7 +83,13 @@
   "upload_multiple_images",
   "inspection_upload",
   "section_break_2gvx8",
-  "images_html"
+  "images_html",
+  "item_specifications_section",
+  "ir_item_spec1",
+  "section_break_jfjno",
+  "ir_item_spec2",
+  "section_break_0glkw",
+  "ir_item_spec3"
  ],
  "fields": [
   {
@@ -140,11 +146,6 @@
    "fieldtype": "Select",
    "label": "Inspection Type",
    "options": "Special Inspection\nNormal Inspection"
-  },
-  {
-   "fieldname": "vendor_name",
-   "fieldtype": "Data",
-   "label": "Vendor Name"
   },
   {
    "fieldname": "column_break_lx94p",
@@ -471,12 +472,49 @@
    "fieldtype": "Table",
    "label": "Fault Item",
    "options": "Fault Item"
+  },
+  {
+   "fieldname": "item_specifications_section",
+   "fieldtype": "Section Break",
+   "label": "Item Specifications"
+  },
+  {
+   "fieldname": "ir_item_spec1",
+   "fieldtype": "Table",
+   "label": "IR Item Spec1",
+   "options": "IR Item Spec1"
+  },
+  {
+   "fieldname": "section_break_jfjno",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec2",
+   "fieldtype": "Table",
+   "label": "IR Item Spec2",
+   "options": "IR Item Spec2"
+  },
+  {
+   "fieldname": "section_break_0glkw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec3",
+   "fieldtype": "Table",
+   "label": "IR Item Spec3",
+   "options": "IR Item Spec3"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Link",
+   "label": "Vendor Name",
+   "options": "Supplier"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-09 16:05:13.636484",
+ "modified": "2025-04-08 14:16:17.374769",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
