@@ -85,6 +85,8 @@
   "section_break_2gvx8",
   "images_html",
   "item_specifications_section",
+  "item",
+  "section_break_4omrz",
   "ir_item_spec1",
   "section_break_jfjno",
   "ir_item_spec2",
@@ -509,12 +511,22 @@
    "fieldtype": "Link",
    "label": "Vendor Name",
    "options": "Supplier"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_4omrz",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-08 14:16:17.374769",
+ "modified": "2025-04-10 17:16:36.491280",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
