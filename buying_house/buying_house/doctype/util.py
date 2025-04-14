@@ -118,9 +118,9 @@ def get_item_specification_details(item_code):
             "item_spec3": [],
         }
 
-    item_spec1 = frappe.db.sql("SELECT * FROM `tabItem Spec1` WHERE parent=%s", parent_name, as_dict=True)
-    item_spec2 = frappe.db.sql("SELECT * FROM `tabItem Spec2` WHERE parent=%s", parent_name, as_dict=True)
-    item_spec3 = frappe.db.sql("SELECT * FROM `tabItem Spec3` WHERE parent=%s", parent_name, as_dict=True)
+    item_spec1 = frappe.db.sql("SELECT * FROM `tabItem Spec1` WHERE parent=%s order by idx", parent_name, as_dict=True)
+    item_spec2 = frappe.db.sql("SELECT * FROM `tabItem Spec2` WHERE parent=%s order by idx", parent_name, as_dict=True)
+    item_spec3 = frappe.db.sql("SELECT * FROM `tabItem Spec3` WHERE parent=%s order by idx", parent_name, as_dict=True)
 
     return {
         "item_spec1": item_spec1,
