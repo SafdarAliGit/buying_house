@@ -86,7 +86,7 @@ frappe.ui.form.on('Inspection Report', {
     not_finished: function (frm) {
         calculate_not_finished_percent(frm);
     },
-    
+
     item: function(frm) {
         if (frm.doc.item) {
             frappe.call({
@@ -104,6 +104,7 @@ frappe.ui.form.on('Inspection Report', {
                         // Populate cpo_item_spec1
                         r.message.item_spec1.forEach(row => {
                             let child = frm.add_child('ir_item_spec1');
+                            child.spec_name = row.spec_name;
                             child.s = row.s;
                             child.m = row.m;
                             child.l = row.l;
@@ -114,6 +115,7 @@ frappe.ui.form.on('Inspection Report', {
                         // Populate cpo_item_spec2
                         r.message.item_spec2.forEach(row => {
                             let child = frm.add_child('ir_item_spec2');
+                            child.spec_name = row.spec_name;
                             child['2xl'] = row['2xl'];
                             child['3xl'] = row['3xl'];
                             child['4xl'] = row['4xl'];
@@ -124,6 +126,7 @@ frappe.ui.form.on('Inspection Report', {
                         // Populate cpo_item_spec3
                         r.message.item_spec3.forEach(row => {
                             let child = frm.add_child('ir_item_spec3');
+                            child.spec_name = row.spec_name;
                             child['6xl'] = row['6xl'];
                             child['7xl'] = row['7xl'];
                             child['8xl'] = row['8xl'];
