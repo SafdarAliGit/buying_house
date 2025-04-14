@@ -86,6 +86,7 @@ frappe.ui.form.on('Inspection Report', {
     not_finished: function (frm) {
         calculate_not_finished_percent(frm);
     },
+    
     item: function(frm) {
         if (frm.doc.item) {
             frappe.call({
@@ -103,19 +104,31 @@ frappe.ui.form.on('Inspection Report', {
                         // Populate cpo_item_spec1
                         r.message.item_spec1.forEach(row => {
                             let child = frm.add_child('ir_item_spec1');
-                            Object.assign(child, row); // or manually set fields
+                            child.s = row.s;
+                            child.m = row.m;
+                            child.l = row.l;
+                            child.xl = row.xl;
+                            
                         });
 
                         // Populate cpo_item_spec2
                         r.message.item_spec2.forEach(row => {
                             let child = frm.add_child('ir_item_spec2');
-                            Object.assign(child, row);
+                            child['2xl'] = row['2xl'];
+                            child['3xl'] = row['3xl'];
+                            child['4xl'] = row['4xl'];
+                            child['5xl'] = row['5xl'];
+                            
                         });
 
                         // Populate cpo_item_spec3
                         r.message.item_spec3.forEach(row => {
                             let child = frm.add_child('ir_item_spec3');
-                            Object.assign(child, row);
+                            child['6xl'] = row['6xl'];
+                            child['7xl'] = row['7xl'];
+                            child['8xl'] = row['8xl'];
+                            child['9xl'] = row['9xl'];
+                            child['10xl'] = row['10xl'];
                         });
 
                         frm.refresh_field('ir_item_spec1');
@@ -126,6 +139,7 @@ frappe.ui.form.on('Inspection Report', {
             });
         }
     },
+
     customer_po: function (frm) {
         fill_inspection_report_child(frm);
         // if (frm.doc.customer_po) {
@@ -167,6 +181,7 @@ frappe.ui.form.on('Inspection Report', {
         //     });
         // }
     },
+
     aql_level: function (frm) {
         fetch_min_1_values(frm);
     },
