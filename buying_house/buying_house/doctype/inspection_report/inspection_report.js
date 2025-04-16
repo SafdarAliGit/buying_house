@@ -13,7 +13,7 @@ frappe.ui.form.on('Inspection Report', {
              // Wait for the field to be rendered
              frm.fields_dict[fieldname].$wrapper
                  .find('input')
-                 .css('background-color', '#7ed957'); // light green
+                 .css('background-color', '#006400'); // light green
          });
          
    
