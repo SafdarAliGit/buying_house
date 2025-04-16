@@ -196,6 +196,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "inspection_report_item",
    "fieldtype": "Table",
    "label": "SKU Detail",
@@ -338,6 +339,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "inspection_upload",
    "fieldtype": "Table",
    "label": "Inspection Upload",
@@ -460,6 +462,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "sku_detail_home_item",
    "fieldtype": "Table",
    "label": "SKU Detail Home Item",
@@ -503,6 +506,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "fault_item",
    "fieldtype": "Table",
    "label": "Fault Item",
@@ -514,6 +518,7 @@
    "label": "Item Specifications"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec1",
    "fieldtype": "Table",
    "label": "IR Item Spec1",
@@ -524,6 +529,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec2",
    "fieldtype": "Table",
    "label": "IR Item Spec2",
@@ -534,6 +540,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec3",
    "fieldtype": "Table",
    "label": "IR Item Spec3",
@@ -570,6 +577,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec11",
    "fieldtype": "Table",
    "label": "IR Item Spec4",
@@ -580,6 +588,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec22",
    "fieldtype": "Table",
    "label": "IR Item Spec5",
@@ -590,6 +599,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec33",
    "fieldtype": "Table",
    "label": "IR Item Spec6",
@@ -610,6 +620,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec111",
    "fieldtype": "Table",
    "label": "IR Item Spec7",
@@ -620,6 +631,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec222",
    "fieldtype": "Table",
    "label": "IR Item Spec8",
@@ -630,6 +642,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec333",
    "fieldtype": "Table",
    "label": "IR Item Spec9",
@@ -650,6 +663,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec1111",
    "fieldtype": "Table",
    "label": "IR Item Spec10",
@@ -660,6 +674,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec2222",
    "fieldtype": "Table",
    "label": "IR Item Spec11",
@@ -670,6 +685,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec3333",
    "fieldtype": "Table",
    "label": "IR Item Spec12",
@@ -690,6 +706,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec11111",
    "fieldtype": "Table",
    "label": "IR Item Spec13",
@@ -700,6 +717,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec22222",
    "fieldtype": "Table",
    "label": "IR Item Spec14",
@@ -710,6 +728,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_bulk_edit": 1,
    "fieldname": "ir_item_spec33333",
    "fieldtype": "Table",
    "label": "IR Item Spec15",
@@ -719,7 +738,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-16 18:20:34.096046",
+ "modified": "2025-04-16 19:44:56.541680",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
