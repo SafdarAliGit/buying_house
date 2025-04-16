@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:IR-{customer_name}-{customer_po}-{#####}",
  "creation": "2024-11-19 16:07:54.566908",
@@ -91,7 +92,39 @@
   "section_break_jfjno",
   "ir_item_spec2",
   "section_break_0glkw",
-  "ir_item_spec3"
+  "ir_item_spec3",
+  "section_break_04uta",
+  "item2",
+  "section_break_sfoqi",
+  "ir_item_spec11",
+  "section_break_fhmug",
+  "ir_item_spec22",
+  "section_break_vdaen",
+  "ir_item_spec33",
+  "section_break_hgfpe",
+  "item3",
+  "section_break_2yuy6",
+  "ir_item_spec111",
+  "section_break_appig",
+  "ir_item_spec222",
+  "section_break_z61ck",
+  "ir_item_spec333",
+  "section_break_shrwn",
+  "item4",
+  "section_break_nj2wu",
+  "ir_item_spec1111",
+  "section_break_oa8zv",
+  "ir_item_spec2222",
+  "section_break_zcoaf",
+  "ir_item_spec3333",
+  "section_break_tdtjg",
+  "item5",
+  "section_break_uvup4",
+  "ir_item_spec11111",
+  "section_break_8ycd1",
+  "ir_item_spec22222",
+  "section_break_wwyzx",
+  "ir_item_spec33333"
  ],
  "fields": [
   {
@@ -515,18 +548,178 @@
   {
    "fieldname": "item",
    "fieldtype": "Link",
-   "label": "Item",
+   "label": "Item 1",
    "options": "Item"
   },
   {
    "fieldname": "section_break_4omrz",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_04uta",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item2",
+   "fieldtype": "Link",
+   "label": "Item 2",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_sfoqi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec11",
+   "fieldtype": "Table",
+   "label": "IR Item Spec4",
+   "options": "IR Item Spec11"
+  },
+  {
+   "fieldname": "section_break_fhmug",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec22",
+   "fieldtype": "Table",
+   "label": "IR Item Spec5",
+   "options": "IR Item Spec11"
+  },
+  {
+   "fieldname": "section_break_vdaen",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec33",
+   "fieldtype": "Table",
+   "label": "IR Item Spec6",
+   "options": "IR Item Spec33"
+  },
+  {
+   "fieldname": "section_break_hgfpe",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item3",
+   "fieldtype": "Link",
+   "label": "Item 3",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_2yuy6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec111",
+   "fieldtype": "Table",
+   "label": "IR Item Spec7",
+   "options": "IR Item Spec111"
+  },
+  {
+   "fieldname": "section_break_appig",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec222",
+   "fieldtype": "Table",
+   "label": "IR Item Spec8",
+   "options": "IR Item Spec222"
+  },
+  {
+   "fieldname": "section_break_z61ck",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec333",
+   "fieldtype": "Table",
+   "label": "IR Item Spec9",
+   "options": "IR Item Spec333"
+  },
+  {
+   "fieldname": "section_break_shrwn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item4",
+   "fieldtype": "Link",
+   "label": "Item 4",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_nj2wu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec1111",
+   "fieldtype": "Table",
+   "label": "IR Item Spec10",
+   "options": "IR Item Spec1111"
+  },
+  {
+   "fieldname": "section_break_oa8zv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec2222",
+   "fieldtype": "Table",
+   "label": "IR Item Spec11",
+   "options": "IR Item Spec2222"
+  },
+  {
+   "fieldname": "section_break_zcoaf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec3333",
+   "fieldtype": "Table",
+   "label": "IR Item Spec12",
+   "options": "IR Item Spec3333"
+  },
+  {
+   "fieldname": "section_break_tdtjg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "item5",
+   "fieldtype": "Link",
+   "label": "Item5",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_uvup4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec11111",
+   "fieldtype": "Table",
+   "label": "IR Item Spec13",
+   "options": "IR Item Spec11111"
+  },
+  {
+   "fieldname": "section_break_8ycd1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec22222",
+   "fieldtype": "Table",
+   "label": "IR Item Spec14",
+   "options": "IR Item Spec22222"
+  },
+  {
+   "fieldname": "section_break_wwyzx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "ir_item_spec33333",
+   "fieldtype": "Table",
+   "label": "IR Item Spec15",
+   "options": "IR Item Spec33333"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-10 17:16:36.491280",
+ "modified": "2025-04-16 18:20:34.096046",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",

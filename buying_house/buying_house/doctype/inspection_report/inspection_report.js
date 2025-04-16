@@ -5,7 +5,18 @@ frappe.ui.form.on('Inspection Report', {
 
 
     refresh: function (frm) {
+        
+         // List of fieldnames to apply the same background color
+         let fields = ['item', 'item2', 'item3', 'item4', 'item5'];
 
+         fields.forEach(fieldname => {
+             // Wait for the field to be rendered
+             frm.fields_dict[fieldname].$wrapper
+                 .find('input')
+                 .css('background-color', '#a8e6a1'); // light green
+         });
+         
+   
 
         frm.fields_dict['inspection_levels'].get_query = function (doc) {
             return {
@@ -137,6 +148,226 @@ frappe.ui.form.on('Inspection Report', {
                         frm.refresh_field('ir_item_spec1');
                         frm.refresh_field('ir_item_spec2');
                         frm.refresh_field('ir_item_spec3');
+                    }
+                }
+            });
+        }
+    },
+    item2: function(frm) {
+        if (frm.doc.item) {
+            frappe.call({
+                method: 'buying_house.buying_house.doctype.util.get_item_specification_details2', // adjust to your method path
+                args: {
+                    item_code: frm.doc.item2
+                },
+                callback: function(r) {
+                    if (r.message) {
+                        // Clear existing rows
+                        frm.clear_table('ir_item_spec11');
+                        frm.clear_table('ir_item_spec22');
+                        frm.clear_table('ir_item_spec33');
+
+                        // Populate cpo_item_spec1
+                        r.message.item_spec1.forEach(row => {
+                            let child = frm.add_child('ir_item_spec11');
+                            child.spec_name = row.spec_name;
+                            child.s = row.s;
+                            child.m = row.m;
+                            child.l = row.l;
+                            child.xl = row.xl;
+                            
+                        });
+
+                        // Populate cpo_item_spec2
+                        r.message.item_spec2.forEach(row => {
+                            let child = frm.add_child('ir_item_spec22');
+                            child.spec_name = row.spec_name;
+                            child['2xl'] = row['2xl'];
+                            child['3xl'] = row['3xl'];
+                            child['4xl'] = row['4xl'];
+                            child['5xl'] = row['5xl'];
+                            
+                        });
+
+                        // Populate cpo_item_spec3
+                        r.message.item_spec3.forEach(row => {
+                            let child = frm.add_child('ir_item_spec33');
+                            child.spec_name = row.spec_name;
+                            child['6xl'] = row['6xl'];
+                            child['7xl'] = row['7xl'];
+                            child['8xl'] = row['8xl'];
+                            child['9xl'] = row['9xl'];
+                            child['10xl'] = row['10xl'];
+                        });
+
+                        frm.refresh_field('ir_item_spec11');
+                        frm.refresh_field('ir_item_spec22');
+                        frm.refresh_field('ir_item_spec33');
+                    }
+                }
+            });
+        }
+    },
+    item3: function(frm) {
+        if (frm.doc.item) {
+            frappe.call({
+                method: 'buying_house.buying_house.doctype.util.get_item_specification_details3', // adjust to your method path
+                args: {
+                    item_code: frm.doc.item3
+                },
+                callback: function(r) {
+                    if (r.message) {
+                        // Clear existing rows
+                        frm.clear_table('ir_item_spec111');
+                        frm.clear_table('ir_item_spec222');
+                        frm.clear_table('ir_item_spec333');
+
+                        // Populate cpo_item_spec1
+                        r.message.item_spec1.forEach(row => {
+                            let child = frm.add_child('ir_item_spec111');
+                            child.spec_name = row.spec_name;
+                            child.s = row.s;
+                            child.m = row.m;
+                            child.l = row.l;
+                            child.xl = row.xl;
+                            
+                        });
+
+                        // Populate cpo_item_spec2
+                        r.message.item_spec2.forEach(row => {
+                            let child = frm.add_child('ir_item_spec222');
+                            child.spec_name = row.spec_name;
+                            child['2xl'] = row['2xl'];
+                            child['3xl'] = row['3xl'];
+                            child['4xl'] = row['4xl'];
+                            child['5xl'] = row['5xl'];
+                            
+                        });
+
+                        // Populate cpo_item_spec3
+                        r.message.item_spec3.forEach(row => {
+                            let child = frm.add_child('ir_item_spec333');
+                            child.spec_name = row.spec_name;
+                            child['6xl'] = row['6xl'];
+                            child['7xl'] = row['7xl'];
+                            child['8xl'] = row['8xl'];
+                            child['9xl'] = row['9xl'];
+                            child['10xl'] = row['10xl'];
+                        });
+
+                        frm.refresh_field('ir_item_spec111');
+                        frm.refresh_field('ir_item_spec222');
+                        frm.refresh_field('ir_item_spec333');
+                    }
+                }
+            });
+        }
+    },
+    item4: function(frm) {
+        if (frm.doc.item) {
+            frappe.call({
+                method: 'buying_house.buying_house.doctype.util.get_item_specification_details4', // adjust to your method path
+                args: {
+                    item_code: frm.doc.item4
+                },
+                callback: function(r) {
+                    if (r.message) {
+                        // Clear existing rows
+                        frm.clear_table('ir_item_spec1111');
+                        frm.clear_table('ir_item_spec2222');
+                        frm.clear_table('ir_item_spec3333');
+
+                        // Populate cpo_item_spec1
+                        r.message.item_spec1.forEach(row => {
+                            let child = frm.add_child('ir_item_spec1111');
+                            child.spec_name = row.spec_name;
+                            child.s = row.s;
+                            child.m = row.m;
+                            child.l = row.l;
+                            child.xl = row.xl;
+                            
+                        });
+
+                        // Populate cpo_item_spec2
+                        r.message.item_spec2.forEach(row => {
+                            let child = frm.add_child('ir_item_spec2222');
+                            child.spec_name = row.spec_name;
+                            child['2xl'] = row['2xl'];
+                            child['3xl'] = row['3xl'];
+                            child['4xl'] = row['4xl'];
+                            child['5xl'] = row['5xl'];
+                            
+                        });
+
+                        // Populate cpo_item_spec3
+                        r.message.item_spec3.forEach(row => {
+                            let child = frm.add_child('ir_item_spec3333');
+                            child.spec_name = row.spec_name;
+                            child['6xl'] = row['6xl'];
+                            child['7xl'] = row['7xl'];
+                            child['8xl'] = row['8xl'];
+                            child['9xl'] = row['9xl'];
+                            child['10xl'] = row['10xl'];
+                        });
+
+                        frm.refresh_field('ir_item_spec1111');
+                        frm.refresh_field('ir_item_spec2222');
+                        frm.refresh_field('ir_item_spec3333');
+                    }
+                }
+            });
+        }
+    },
+    item5: function(frm) {
+        if (frm.doc.item) {
+            frappe.call({
+                method: 'buying_house.buying_house.doctype.util.get_item_specification_details5', // adjust to your method path
+                args: {
+                    item_code: frm.doc.item5
+                },
+                callback: function(r) {
+                    if (r.message) {
+                        // Clear existing rows
+                        frm.clear_table('ir_item_spec11111');
+                        frm.clear_table('ir_item_spec22222');
+                        frm.clear_table('ir_item_spec33333');
+
+                        // Populate cpo_item_spec1
+                        r.message.item_spec1.forEach(row => {
+                            let child = frm.add_child('ir_item_spec11111');
+                            child.spec_name = row.spec_name;
+                            child.s = row.s;
+                            child.m = row.m;
+                            child.l = row.l;
+                            child.xl = row.xl;
+                            
+                        });
+
+                        // Populate cpo_item_spec2
+                        r.message.item_spec2.forEach(row => {
+                            let child = frm.add_child('ir_item_spec22222');
+                            child.spec_name = row.spec_name;
+                            child['2xl'] = row['2xl'];
+                            child['3xl'] = row['3xl'];
+                            child['4xl'] = row['4xl'];
+                            child['5xl'] = row['5xl'];
+                            
+                        });
+
+                        // Populate cpo_item_spec3
+                        r.message.item_spec3.forEach(row => {
+                            let child = frm.add_child('ir_item_spec33333');
+                            child.spec_name = row.spec_name;
+                            child['6xl'] = row['6xl'];
+                            child['7xl'] = row['7xl'];
+                            child['8xl'] = row['8xl'];
+                            child['9xl'] = row['9xl'];
+                            child['10xl'] = row['10xl'];
+                        });
+
+                        frm.refresh_field('ir_item_spec11111');
+                        frm.refresh_field('ir_item_spec22222');
+                        frm.refresh_field('ir_item_spec33333');
                     }
                 }
             });
