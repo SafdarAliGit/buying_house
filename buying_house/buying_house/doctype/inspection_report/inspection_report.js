@@ -3,9 +3,17 @@
 
 frappe.ui.form.on('Inspection Report', {
 
-
+    after_save: function(frm) {
+        highlight_negative_values(frm);
+    },
     refresh: function (frm) {
+        highlight_negative_values(frm);
         
+        // frm.fields_dict['ir_item_spec1'].grid.wrapper.find('.btn-open-row').on('click', function() {
+        //     setup_child_row_highlight(frm);
+        // });
+        
+            
          // List of fieldnames to apply the same background color
          let fields = ['item', 'item2', 'item3', 'item4', 'item5'];
 
@@ -428,6 +436,10 @@ frappe.ui.form.on('Inspection Report', {
     }
 });
 
+frappe.ui.form.on('IR Item Spec1', {
+   
+});
+
 function fetch_photo(frm) {
     if (frm.doc.customer_logo) {
         frappe.db.get_value('Inspection Report', frm.doc.name, 'customer_logo', (r) => {
@@ -656,3 +668,21 @@ function calculate_totals_home_item(frm) {
     frm.set_value('total_qty_pcs', total_qty_pcs);
     frm.set_value('sum_pcs', total_qty_pcs + total_pcs);
 }
+
+function highlight_negative_values(frm) {
+    frm.fields_dict['ir_item_spec1'].grid.wrapper.find('.grid-row').each(function() {
+        let $row = $(this);
+        $row.find('[data-fieldname]').each(function() {
+            let $field = $(this);
+            let value = $field.text().trim();
+            if (value.startsWith('-')) {
+                $field.css('color', 'red');
+            } else {
+                $field.css('color', '');
+            }
+        });
+    });
+}
+
+
+
