@@ -2,6 +2,12 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Inspection Report', {
+    minor_fault: function(frm) {
+        check_inspection_result(frm);
+    },
+    major_fault: function(frm) {
+        check_inspection_result(frm);
+    },
 
     after_save: function(frm) {
         highlight_negative_values(frm);
@@ -686,3 +692,16 @@ function highlight_negative_values(frm) {
 
 
 
+function check_inspection_result(frm) {
+    let minor_fault = frm.doc.minor_fault || 0;
+    let major_fault = frm.doc.major_fault || 0;
+    let aql_level_minor = frm.doc.aql_level_minor || 0;
+    let aql_level = frm.doc.aql_level || 0;
+
+    // If either fault exceeds its respective AQL level, set Fail
+    if (minor_fault > aql_level_minor || major_fault > aql_level) {
+        frm.set_value('inpection_report', 'Fail');
+    } else {
+        frm.set_value('inpection_report', 'Pass');
+    }
+}
