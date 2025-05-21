@@ -21,6 +21,10 @@
   "column_break_lx94p",
   "logo",
   "auditor",
+  "finding_section",
+  "minor_fault",
+  "column_break_id8fw",
+  "major_fault",
   "section_break_vlvpd",
   "inspection_report_item",
   "section_break_op8fh",
@@ -733,12 +737,31 @@
    "fieldtype": "Table",
    "label": "IR Item Spec15",
    "options": "IR Item Spec33333"
+  },
+  {
+   "fieldname": "finding_section",
+   "fieldtype": "Section Break",
+   "label": "Finding"
+  },
+  {
+   "fieldname": "minor_fault",
+   "fieldtype": "Int",
+   "label": "Minor Fault"
+  },
+  {
+   "fieldname": "major_fault",
+   "fieldtype": "Int",
+   "label": "Major Fault"
+  },
+  {
+   "fieldname": "column_break_id8fw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-16 19:44:56.541680",
+ "modified": "2025-05-21 17:02:20.129184",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",
