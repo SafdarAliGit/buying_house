@@ -30,10 +30,16 @@
   "sku_detail_home",
   "section_break_hk3wy",
   "total_qty_ctn",
+  "column_break_kfiai",
+  "total_dozen_home",
   "column_break_l5dj0",
   "total_qty_pcs",
   "column_break_dmmmu",
   "sum_pcs",
+  "column_break_0yd9f",
+  "sum_doz",
+  "column_break_fbwsy",
+  "sum_ctn",
   "section_break_kctx7",
   "item",
   "section_break_omrkk",
@@ -184,7 +190,8 @@
   },
   {
    "fieldname": "column_break_dmmmu",
-   "fieldtype": "Column Break"
+   "fieldtype": "Section Break",
+   "label": "TOTAL"
   },
   {
    "fieldname": "section_break_kctx7",
@@ -226,6 +233,39 @@
    "fieldtype": "Table",
    "label": "Item Spec3",
    "options": "CPO Item Spec3"
+  },
+  {
+   "fieldname": "column_break_kfiai",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_dozen_home",
+   "fieldtype": "Int",
+   "label": "Total Dozens",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "sum_doz",
+   "fieldtype": "Int",
+   "label": "SUM DOZ",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "sum_ctn",
+   "fieldtype": "Int",
+   "label": "SUM CTN",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_0yd9f",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_fbwsy",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -236,7 +276,7 @@
    "link_fieldname": "customer_po"
   }
  ],
- "modified": "2025-04-06 15:00:25.121909",
+ "modified": "2025-06-19 20:08:23.402765",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Customer PO",

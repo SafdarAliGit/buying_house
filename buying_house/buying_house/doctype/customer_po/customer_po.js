@@ -97,6 +97,9 @@ frappe.ui.form.on('SKU Detail Home', {
     },
     qty_ctn: function (frm) {
         calculate_totals_home(frm);
+    },
+    no_of_doz: function (frm) {
+        calculate_totals_home(frm);
     }
 });
 
@@ -143,6 +146,7 @@ function calculate_totals(frm) {
     frm.set_value('total_ctn', totalCtn);
     frm.set_value('total_dozens', totalDozens);
     frm.set_value('total_pcs', totalPcs);
+    total_pcs_doz_ctn(frm)
 }
 
 function calculate_totals_home(frm) {
@@ -150,18 +154,22 @@ function calculate_totals_home(frm) {
     let total_qty_ctn = 0;
     let total_qty_pcs = 0;
     let total_pcs = 0;
+    let total_dozen_home = 0;
     total_pcs = frm.doc.total_pcs || 0;
     // Iterate through the child table rows
     if (frm.doc.sku_detail_home) {
         frm.doc.sku_detail_home.forEach(row => {
             total_qty_ctn += row.qty_ctn || 0;
             total_qty_pcs += row.qty_pcs || 0;
+            total_dozen_home += row.no_of_doz || 0;
         });
     }
     // Assign totals to the parent fields
     frm.set_value('total_qty_ctn', total_qty_ctn);
     frm.set_value('total_qty_pcs', total_qty_pcs);
     frm.set_value('sum_pcs', total_qty_pcs + total_pcs);
+    frm.set_value('total_dozen_home', total_dozen_home);
+    total_pcs_doz_ctn(frm)
 }
 
 // Function to update `pcs` for a specific row when `no_of_ctn` or `no_of_doz` changes
@@ -172,4 +180,17 @@ function update_pcs_for_row(cdt, cdn) {
         frappe.model.set_value(cdt, cdn, 'pcs', pcs);
     }
 
+}
+
+function total_pcs_doz_ctn(frm) {
+    let total_ctn = frm.doc.total_ctn || 0;
+    let total_dozens = frm.doc.total_dozens || 0;
+    let total_pcs = frm.doc.total_pcs || 0;
+    let total_qty_ctn = frm.doc.total_qty_ctn || 0;
+    let total_dozen_home = frm.doc.total_dozen_home || 0;
+    let total_qty_pcs = frm.doc.total_qty_pcs || 0;
+
+    frm.set_value('sum_pcs', total_pcs + total_qty_pcs);
+    frm.set_value('sum_doz', total_dozens + total_dozen_home);
+    frm.set_value('sum_ctn', total_ctn + total_qty_ctn);
 }
