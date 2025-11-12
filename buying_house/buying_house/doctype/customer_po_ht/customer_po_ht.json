@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:CPO-{customer_name}-{po_number}",
- "creation": "2024-11-19 12:12:48.083817",
+ "creation": "2025-11-12 19:16:42.185919",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -17,15 +17,14 @@
   "auditor_name",
   "column_break_lwama",
   "logo",
-  "section_break_h7ikz",
-  "sku_detail",
-  "section_break_afxup",
-  "total_ctn",
-  "column_break_xwsy0",
-  "total_dozens",
-  "column_break_dx4aj",
-  "total_pcs",
-  "amended_from",
+  "section_break_bf2yl",
+  "sku_detail_home",
+  "section_break_hk3wy",
+  "total_qty_ctn",
+  "column_break_kfiai",
+  "total_dozen_home",
+  "column_break_l5dj0",
+  "total_qty_pcs",
   "column_break_dmmmu",
   "sum_pcs",
   "column_break_0yd9f",
@@ -39,7 +38,8 @@
   "section_break_gvjm3",
   "cpo_item_spec2",
   "section_break_ztxhv",
-  "cpo_item_spec3"
+  "cpo_item_spec3",
+  "amended_from"
  ],
  "fields": [
   {
@@ -60,6 +60,10 @@
    "label": "Customer Name Abbrevation"
   },
   {
+   "fieldname": "section_break_xsf7p",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "po_number",
    "fieldtype": "Data",
    "label": "PO Number",
@@ -76,63 +80,6 @@
    "label": "Auditor Name"
   },
   {
-   "allow_bulk_edit": 1,
-   "fieldname": "sku_detail",
-   "fieldtype": "Table",
-   "label": "SKU Detail",
-   "options": "SKU Detail"
-  },
-  {
-   "default": "0",
-   "fieldname": "total_ctn",
-   "fieldtype": "Int",
-   "label": "Total Ctn",
-   "read_only": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "total_dozens",
-   "fieldtype": "Int",
-   "label": "Total Dozens",
-   "read_only": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "total_pcs",
-   "fieldtype": "Int",
-   "label": "Total Pcs",
-   "read_only": 1
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Customer PO",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
-   "fieldname": "section_break_xsf7p",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_h7ikz",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "section_break_afxup",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_xwsy0",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_dx4aj",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "column_break_lwama",
    "fieldtype": "Column Break"
   },
@@ -142,10 +89,56 @@
    "label": "Logo"
   },
   {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer PO HT",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_bf2yl",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "sku_detail_home",
+   "fieldtype": "Table",
+   "label": "SKU Detail Home",
+   "options": "SKU Detail Home"
+  },
+  {
+   "fieldname": "section_break_hk3wy",
+   "fieldtype": "Section Break"
+  },
+  {
    "default": "0",
-   "fieldname": "sum_pcs",
+   "fieldname": "total_qty_ctn",
    "fieldtype": "Int",
-   "label": "SUM PCS",
+   "label": "Total Qty Ctn",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_kfiai",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_dozen_home",
+   "fieldtype": "Int",
+   "label": "Total Dozens",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_l5dj0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty_pcs",
+   "fieldtype": "Int",
+   "label": "Total Qty Pcs",
    "read_only": 1
   },
   {
@@ -153,6 +146,35 @@
    "fieldtype": "Section Break",
    "hidden": 1,
    "label": "TOTAL"
+  },
+  {
+   "default": "0",
+   "fieldname": "sum_pcs",
+   "fieldtype": "Int",
+   "label": "SUM PCS",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_0yd9f",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "sum_doz",
+   "fieldtype": "Int",
+   "label": "SUM DOZ",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_fbwsy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "sum_ctn",
+   "fieldtype": "Int",
+   "label": "SUM CTN",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_kctx7",
@@ -196,26 +218,14 @@
    "options": "CPO Item Spec3"
   },
   {
-   "default": "0",
-   "fieldname": "sum_doz",
-   "fieldtype": "Int",
-   "label": "SUM DOZ",
-   "read_only": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "sum_ctn",
-   "fieldtype": "Int",
-   "label": "SUM CTN",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_0yd9f",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_fbwsy",
-   "fieldtype": "Column Break"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer PO HT",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -226,10 +236,10 @@
    "link_fieldname": "customer_po"
   }
  ],
- "modified": "2025-11-12 19:31:44.232111",
+ "modified": "2025-11-12 19:32:29.296240",
  "modified_by": "Administrator",
  "module": "Buying House",
- "name": "Customer PO",
+ "name": "Customer PO HT",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [

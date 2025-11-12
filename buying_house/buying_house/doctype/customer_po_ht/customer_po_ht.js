@@ -1,22 +1,22 @@
 // Copyright (c) 2024, safdar211@gmail.com and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Customer PO', {
+frappe.ui.form.on('Customer PO HT', {
     refresh: function (frm) {
-        frm.set_query('item_description', 'sku_detail', function (doc, cdt, cdn) {
-            return {
-                filters: [
-                    ["Item", "item_group", "in", ["Garments"]]
-                ]
-            };
-        });
-        // frm.set_query('product_type', 'sku_detail_home', function (doc, cdt, cdn) {
+        // frm.set_query('item_description', 'sku_detail', function (doc, cdt, cdn) {
         //     return {
         //         filters: [
-        //             ["Item", "item_group", "in", ["Home Textile"]]
+        //             ["Item", "item_group", "in", ["Garments"]]
         //         ]
         //     };
         // });
+        frm.set_query('product_type', 'sku_detail_home', function (doc, cdt, cdn) {
+            return {
+                filters: [
+                    ["Item", "item_group", "in", ["Home Textile"]]
+                ]
+            };
+        });
         fetch_photo(frm);
         calculate_totals(frm);
 
@@ -77,31 +77,31 @@ frappe.ui.form.on('Customer PO', {
 
 });
 
-frappe.ui.form.on('SKU Detail', {
-    no_of_ctn: function (frm, cdt, cdn) {
-        update_pcs_for_row(cdt, cdn);
-        calculate_totals(frm);
-    },
-    no_of_doz: function (frm, cdt, cdn) {
-        update_pcs_for_row(cdt, cdn);
-        calculate_totals(frm);
-    },
-    pcs: function (frm) {
-        calculate_totals(frm);
-    }
-})
-
-// frappe.ui.form.on('SKU Detail Home', {
-//     qty_pcs: function (frm) {
-//         calculate_totals_home(frm);
+// frappe.ui.form.on('SKU Detail', {
+//     no_of_ctn: function (frm, cdt, cdn) {
+//         update_pcs_for_row(cdt, cdn);
+//         calculate_totals(frm);
 //     },
-//     qty_ctn: function (frm) {
-//         calculate_totals_home(frm);
+//     no_of_doz: function (frm, cdt, cdn) {
+//         update_pcs_for_row(cdt, cdn);
+//         calculate_totals(frm);
 //     },
-//     no_of_doz: function (frm) {
-//         calculate_totals_home(frm);
+//     pcs: function (frm) {
+//         calculate_totals(frm);
 //     }
-// });
+// })
+
+frappe.ui.form.on('SKU Detail Home', {
+    qty_pcs: function (frm) {
+        calculate_totals_home(frm);
+    },
+    qty_ctn: function (frm) {
+        calculate_totals_home(frm);
+    },
+    no_of_doz: function (frm) {
+        calculate_totals_home(frm);
+    }
+});
 
 function fetch_photo(frm) {
     if (frm.doc.customer_logo) {
@@ -129,48 +129,48 @@ function getAbbreviation(inputString) {
     return abbreviation;
 }
 
-function calculate_totals(frm) {
-    // Initialize totals
-    let totalCtn = 0;
-    let totalDozens = 0;
-    let totalPcs = 0;
-    // Iterate through the child table rows
-    if (frm.doc.sku_detail) {
-        frm.doc.sku_detail.forEach(row => {
-            totalCtn += row.no_of_ctn || 0;
-            totalDozens += row.no_of_doz || 0;
-            totalPcs += row.pcs || 0;
-        });
-    }
-    // Assign totals to the parent fields
-    frm.set_value('total_ctn', totalCtn);
-    frm.set_value('total_dozens', totalDozens);
-    frm.set_value('total_pcs', totalPcs);
-    // total_pcs_doz_ctn(frm)
-}
-
-// function calculate_totals_home(frm) {
+// function calculate_totals(frm) {
 //     // Initialize totals
-//     let total_qty_ctn = 0;
-//     let total_qty_pcs = 0;
-//     let total_pcs = 0;
-//     let total_dozen_home = 0;
-//     total_pcs = frm.doc.total_pcs || 0;
+//     let totalCtn = 0;
+//     let totalDozens = 0;
+//     let totalPcs = 0;
 //     // Iterate through the child table rows
-//     if (frm.doc.sku_detail_home) {
-//         frm.doc.sku_detail_home.forEach(row => {
-//             total_qty_ctn += row.qty_ctn || 0;
-//             total_qty_pcs += row.qty_pcs || 0;
-//             total_dozen_home += row.no_of_doz || 0;
+//     if (frm.doc.sku_detail) {
+//         frm.doc.sku_detail.forEach(row => {
+//             totalCtn += row.no_of_ctn || 0;
+//             totalDozens += row.no_of_doz || 0;
+//             totalPcs += row.pcs || 0;
 //         });
 //     }
 //     // Assign totals to the parent fields
-//     frm.set_value('total_qty_ctn', total_qty_ctn);
-//     frm.set_value('total_qty_pcs', total_qty_pcs);
-//     frm.set_value('sum_pcs', total_qty_pcs + total_pcs);
-//     frm.set_value('total_dozen_home', total_dozen_home);
-//     total_pcs_doz_ctn(frm)
+//     frm.set_value('total_ctn', totalCtn);
+//     frm.set_value('total_dozens', totalDozens);
+//     frm.set_value('total_pcs', totalPcs);
+//     // total_pcs_doz_ctn(frm)
 // }
+
+function calculate_totals_home(frm) {
+    // Initialize totals
+    let total_qty_ctn = 0;
+    let total_qty_pcs = 0;
+    let total_pcs = 0;
+    let total_dozen_home = 0;
+    total_pcs = frm.doc.total_pcs || 0;
+    // Iterate through the child table rows
+    if (frm.doc.sku_detail_home) {
+        frm.doc.sku_detail_home.forEach(row => {
+            total_qty_ctn += row.qty_ctn || 0;
+            total_qty_pcs += row.qty_pcs || 0;
+            total_dozen_home += row.no_of_doz || 0;
+        });
+    }
+    // Assign totals to the parent fields
+    frm.set_value('total_qty_ctn', total_qty_ctn);
+    frm.set_value('total_qty_pcs', total_qty_pcs);
+    frm.set_value('sum_pcs', total_qty_pcs + total_pcs);
+    frm.set_value('total_dozen_home', total_dozen_home);
+    // total_pcs_doz_ctn(frm)
+}
 
 // Function to update `pcs` for a specific row when `no_of_ctn` or `no_of_doz` changes
 function update_pcs_for_row(cdt, cdn) {
