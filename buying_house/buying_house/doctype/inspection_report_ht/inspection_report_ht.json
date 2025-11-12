@@ -3,7 +3,7 @@
  "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:IR-{customer_name}-{customer_po}-{#####}",
- "creation": "2024-11-19 16:07:54.566908",
+ "creation": "2025-11-12 20:25:18.427882",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -13,7 +13,6 @@
   "customer_name",
   "customer_logo",
   "report_date",
-  "amended_from",
   "general_information_column",
   "general_information_section",
   "vendor_name",
@@ -25,12 +24,6 @@
   "minor_fault",
   "column_break_id8fw",
   "major_fault",
-  "section_break_nsaqa",
-  "inspection_report_item",
-  "section_break_op8fh",
-  "total_no_of_ctn",
-  "column_break_f5l3u",
-  "total_pcs",
   "section_break_kxtg4",
   "inspection_type",
   "column_break_8ymlr",
@@ -45,6 +38,14 @@
   "aql_minor_pcs",
   "section_break_psli7",
   "sample_size",
+  "section_break_c8gtv",
+  "sku_detail_home_item",
+  "section_break_pisea",
+  "total_qty_ctn",
+  "column_break_qwzov",
+  "total_qty_pcs",
+  "column_break_dhtd7",
+  "sum_pcs",
   "section_break_uxoaj",
   "fault_item",
   "section_break_z4fqi",
@@ -121,7 +122,8 @@
   "section_break_8ycd1",
   "ir_item_spec22222",
   "section_break_wwyzx",
-  "ir_item_spec33333"
+  "ir_item_spec33333",
+  "amended_from"
  ],
  "fields": [
   {
@@ -149,35 +151,34 @@
    "label": "Report Date"
   },
   {
-   "default": "Abdul Rahim",
-   "fieldname": "auditor",
-   "fieldtype": "Data",
-   "label": "Auditor"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "Inspection Report",
+   "options": "Inspection Report HT",
    "print_hide": 1,
-   "read_only": 1
+   "read_only": 1,
+   "search_index": 1
   },
   {
    "fieldname": "general_information_column",
    "fieldtype": "Column Break"
   },
   {
+   "fieldname": "general_information_section",
+   "fieldtype": "Heading",
+   "label": "General Information"
+  },
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Link",
+   "label": "Vendor Name",
+   "options": "Supplier"
+  },
+  {
    "fieldname": "vendor_address",
    "fieldtype": "Small Text",
    "label": "Vendor Address"
-  },
-  {
-   "default": "Normal Inspection",
-   "fieldname": "inspection_type",
-   "fieldtype": "Select",
-   "label": "Inspection Type",
-   "options": "Special Inspection\nNormal Inspection"
   },
   {
    "fieldname": "column_break_lx94p",
@@ -189,24 +190,157 @@
    "label": "Logo"
   },
   {
-   "allow_bulk_edit": 1,
-   "fieldname": "inspection_report_item",
-   "fieldtype": "Table",
-   "label": "SKU Detail",
-   "options": "Inspection Report Item"
+   "default": "Abdul Rahim",
+   "fieldname": "auditor",
+   "fieldtype": "Data",
+   "label": "Auditor"
+  },
+  {
+   "fieldname": "finding_section",
+   "fieldtype": "Section Break",
+   "label": "Finding"
+  },
+  {
+   "fieldname": "minor_fault",
+   "fieldtype": "Int",
+   "label": "Minor Fault"
+  },
+  {
+   "fieldname": "column_break_id8fw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "major_fault",
+   "fieldtype": "Int",
+   "label": "Major Fault"
+  },
+  {
+   "fieldname": "section_break_kxtg4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Normal Inspection",
+   "fieldname": "inspection_type",
+   "fieldtype": "Select",
+   "label": "Inspection Type",
+   "options": "Special Inspection\nNormal Inspection"
+  },
+  {
+   "fieldname": "column_break_8ymlr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "inspection_levels",
+   "fieldtype": "Link",
+   "label": "Inspection Levels",
+   "options": "Inspection Levels"
+  },
+  {
+   "fieldname": "column_break_x83h7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2.5",
+   "fieldname": "aql_level",
+   "fieldtype": "Select",
+   "label": "AQL Level Major",
+   "options": "0.010\n0.015\n0.025\n0.040\n0.055\n0.10\n0.15\n0.25\n0.40\n0.65\n1.0\n1.5\n2.5\n4\n6.5\n10\n15\n25\n40\n65\n100\n150\n250\n400\n650\n1000"
+  },
+  {
+   "fieldname": "column_break_zvjib",
+   "fieldtype": "Column Break"
   },
   {
    "default": "0",
-   "fetch_from": "customer_po.total_pcs",
-   "fieldname": "total_pcs",
-   "fieldtype": "Int",
-   "label": "Total Pcs",
+   "fieldname": "aql_minor",
+   "fieldtype": "Float",
+   "label": "AQL Major (Pcs)",
    "read_only": 1
   },
   {
-   "fieldname": "general_information_section",
-   "fieldtype": "Heading",
-   "label": "General Information"
+   "fieldname": "column_break_r6jql",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2.5",
+   "fieldname": "aql_level_minor",
+   "fieldtype": "Select",
+   "label": "AQL Level Minor",
+   "options": "0.010\n0.015\n0.025\n0.040\n0.055\n0.10\n0.15\n0.25\n0.40\n0.65\n1.0\n1.5\n2.5\n4\n6.5\n10\n15\n25\n40\n65\n100\n150\n250\n400\n650\n1000"
+  },
+  {
+   "fieldname": "column_break_xfj4w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "aql_minor_pcs",
+   "fieldtype": "Float",
+   "label": "AQL Minor (Pcs)"
+  },
+  {
+   "fieldname": "section_break_psli7",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "sample_size",
+   "fieldtype": "Float",
+   "label": "Sample Size"
+  },
+  {
+   "fieldname": "section_break_c8gtv",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "sku_detail_home_item",
+   "fieldtype": "Table",
+   "label": "SKU Detail Home Item",
+   "options": "SKU Detail Home Item"
+  },
+  {
+   "fieldname": "section_break_pisea",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty_ctn",
+   "fieldtype": "Int",
+   "label": "Total Qty Ctn",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_qwzov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_qty_pcs",
+   "fieldtype": "Int",
+   "label": "Total Qty Pcs",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_dhtd7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "sum_pcs",
+   "fieldtype": "Int",
+   "label": "SUM PCS",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_uxoaj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "allow_bulk_edit": 1,
+   "fieldname": "fault_item",
+   "fieldtype": "Table",
+   "label": "Fault Item",
+   "options": "Fault Item"
   },
   {
    "fieldname": "section_break_z4fqi",
@@ -218,10 +352,18 @@
    "label": "Inspection"
   },
   {
+   "fieldname": "column_break_woa1p",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "specification",
    "fieldtype": "Select",
    "label": "Specification",
    "options": "\nPass\nFail"
+  },
+  {
+   "fieldname": "column_break_wu1q8",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "color",
@@ -230,29 +372,18 @@
    "options": "\nPass\nFail"
   },
   {
+   "fieldname": "column_break_bohoj",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "fabric_weight",
    "fieldtype": "Select",
    "label": "Fabric Weight",
    "options": "\nPass\nFail"
   },
   {
-   "default": "0",
-   "fieldname": "aql_minor",
-   "fieldtype": "Float",
-   "label": "AQL Major (Pcs)",
-   "read_only": 1
-  },
-  {
-   "fieldname": "column_break_wu1q8",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_bohoj",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_woa1p",
-   "fieldtype": "Column Break"
+   "fieldname": "section_break_soptl",
+   "fieldtype": "Section Break"
   },
   {
    "fieldname": "packing_status",
@@ -260,14 +391,62 @@
    "label": "Packing Status"
   },
   {
+   "fieldname": "column_break_5oa2q",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "packed_in_carton",
    "fieldtype": "Int",
    "label": "Packed In Carton (Pcs)"
   },
   {
+   "fieldname": "column_break_wg9oo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "packed_in_carton_percent",
+   "fieldtype": "Percent",
+   "label": "Packed In Carton %"
+  },
+  {
+   "fieldname": "column_break_xdqo1",
+   "fieldtype": "Column Break"
+  },
+  {
    "fieldname": "finished_not_packed",
    "fieldtype": "Int",
    "label": "Finished Not Packed (Pcs)"
+  },
+  {
+   "fieldname": "column_break_zbqik",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "finished_not_packed_percent",
+   "fieldtype": "Percent",
+   "label": "Finished Not Packed %"
+  },
+  {
+   "fieldname": "column_break_cwwil",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "not_finished",
+   "fieldtype": "Int",
+   "label": "Not Finished (Pcs)"
+  },
+  {
+   "fieldname": "column_break_ib3xv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "not_finished_percent",
+   "fieldtype": "Percent",
+   "label": "Not Finished %"
+  },
+  {
+   "fieldname": "column_break_5tiea",
+   "fieldtype": "Column Break"
   },
   {
    "fieldname": "inpection_report",
@@ -276,114 +455,14 @@
    "options": "\nPass\nFail"
   },
   {
-   "fieldname": "packed_in_carton_percent",
-   "fieldtype": "Percent",
-   "label": "Packed In Carton %"
-  },
-  {
-   "fieldname": "finished_not_packed_percent",
-   "fieldtype": "Percent",
-   "label": "Finished Not Packed %"
-  },
-  {
-   "fieldname": "not_finished_percent",
-   "fieldtype": "Percent",
-   "label": "Not Finished %"
-  },
-  {
-   "fieldname": "column_break_5oa2q",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_wg9oo",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_xdqo1",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_zbqik",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_cwwil",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_ib3xv",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_5tiea",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "section_break_soptl",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "not_finished",
-   "fieldtype": "Int",
-   "label": "Not Finished (Pcs)"
-  },
-  {
    "fieldname": "section_break_3b61h",
    "fieldtype": "Section Break"
   },
   {
-   "allow_bulk_edit": 1,
-   "fieldname": "inspection_upload",
-   "fieldtype": "Table",
-   "label": "Inspection Upload",
-   "options": "Inspection Upload"
-  },
-  {
-   "fieldname": "section_break_2gvx8",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "images_html",
-   "fieldtype": "HTML",
-   "label": "Images HTML"
-  },
-  {
-   "fieldname": "inspection_levels",
-   "fieldtype": "Link",
-   "label": "Inspection Levels",
-   "options": "Inspection Levels"
-  },
-  {
-   "default": "2.5",
-   "fieldname": "aql_level",
+   "fieldname": "rework_allowed",
    "fieldtype": "Select",
-   "label": "AQL Level Major",
-   "options": "0.010\n0.015\n0.025\n0.040\n0.055\n0.10\n0.15\n0.25\n0.40\n0.65\n1.0\n1.5\n2.5\n4\n6.5\n10\n15\n25\n40\n65\n100\n150\n250\n400\n650\n1000"
-  },
-  {
-   "fieldname": "upload_multiple_images",
-   "fieldtype": "Button",
-   "label": "Upload Multiple Images"
-  },
-  {
-   "fieldname": "section_break_kxtg4",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_8ymlr",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_x83h7",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_zvjib",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_r6jql",
-   "fieldtype": "Column Break"
+   "label": "Rework Allowed",
+   "options": "\nYes\nNo"
   },
   {
    "fieldname": "comments",
@@ -410,61 +489,40 @@
    "fieldtype": "Section Break"
   },
   {
-   "default": "0",
-   "fieldname": "total_no_of_ctn",
-   "fieldtype": "Int",
-   "label": "Total No Of CTN",
-   "read_only": 1
-  },
-  {
-   "fieldname": "section_break_op8fh",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "column_break_f5l3u",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "column_break_xfj4w",
-   "fieldtype": "Column Break"
-  },
-  {
-   "default": "2.5",
-   "fieldname": "aql_level_minor",
-   "fieldtype": "Select",
-   "label": "AQL Level Minor",
-   "options": "0.010\n0.015\n0.025\n0.040\n0.055\n0.10\n0.15\n0.25\n0.40\n0.65\n1.0\n1.5\n2.5\n4\n6.5\n10\n15\n25\n40\n65\n100\n150\n250\n400\n650\n1000"
-  },
-  {
-   "fieldname": "aql_minor_pcs",
-   "fieldtype": "Float",
-   "label": "AQL Minor (Pcs)"
-  },
-  {
-   "fieldname": "section_break_psli7",
-   "fieldtype": "Section Break"
-  },
-  {
-   "default": "0",
-   "fieldname": "sample_size",
-   "fieldtype": "Float",
-   "label": "Sample Size"
-  },
-  {
-   "fieldname": "section_break_uxoaj",
-   "fieldtype": "Section Break"
+   "fieldname": "upload_multiple_images",
+   "fieldtype": "Button",
+   "label": "Upload Multiple Images"
   },
   {
    "allow_bulk_edit": 1,
-   "fieldname": "fault_item",
+   "fieldname": "inspection_upload",
    "fieldtype": "Table",
-   "label": "Fault Item",
-   "options": "Fault Item"
+   "label": "Inspection Upload",
+   "options": "Inspection Upload"
+  },
+  {
+   "fieldname": "section_break_2gvx8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "images_html",
+   "fieldtype": "HTML",
+   "label": "Images HTML"
   },
   {
    "fieldname": "item_specifications_section",
    "fieldtype": "Section Break",
    "label": "Item Specifications"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "Item 1",
+   "options": "Item"
+  },
+  {
+   "fieldname": "section_break_4omrz",
+   "fieldtype": "Section Break"
   },
   {
    "allow_bulk_edit": 1,
@@ -494,22 +552,6 @@
    "fieldtype": "Table",
    "label": "IR Item Spec3",
    "options": "IR Item Spec3"
-  },
-  {
-   "fieldname": "vendor_name",
-   "fieldtype": "Link",
-   "label": "Vendor Name",
-   "options": "Supplier"
-  },
-  {
-   "fieldname": "item",
-   "fieldtype": "Link",
-   "label": "Item 1",
-   "options": "Item"
-  },
-  {
-   "fieldname": "section_break_4omrz",
-   "fieldtype": "Section Break"
   },
   {
    "fieldname": "section_break_04uta",
@@ -684,42 +726,23 @@
    "options": "IR Item Spec33333"
   },
   {
-   "fieldname": "finding_section",
-   "fieldtype": "Section Break",
-   "label": "Finding"
-  },
-  {
-   "fieldname": "minor_fault",
-   "fieldtype": "Int",
-   "label": "Minor Fault"
-  },
-  {
-   "fieldname": "major_fault",
-   "fieldtype": "Int",
-   "label": "Major Fault"
-  },
-  {
-   "fieldname": "column_break_id8fw",
-   "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "rework_allowed",
-   "fieldtype": "Select",
-   "label": "Rework Allowed",
-   "options": "\nYes\nNo"
-  },
-  {
-   "fieldname": "section_break_nsaqa",
-   "fieldtype": "Section Break"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Inspection Report HT",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-12 20:32:33.358950",
+ "modified": "2025-11-12 20:26:45.447598",
  "modified_by": "Administrator",
  "module": "Buying House",
- "name": "Inspection Report",
+ "name": "Inspection Report HT",
  "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
