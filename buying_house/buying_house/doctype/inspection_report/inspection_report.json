@@ -81,6 +81,9 @@
   "upload_multiple_images",
   "inspection_upload",
   "section_break_2gvx8",
+  "upload_multiple_other_images",
+  "inspection_other_upload",
+  "section_break_qlxxt",
   "images_html",
   "item_specifications_section",
   "item",
@@ -711,12 +714,27 @@
   {
    "fieldname": "section_break_nsaqa",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "upload_multiple_other_images",
+   "fieldtype": "Button",
+   "label": "Upload Multiple Other Images"
+  },
+  {
+   "fieldname": "inspection_other_upload",
+   "fieldtype": "Table",
+   "label": "Inspection Other Upload",
+   "options": "Inspection Other Upload"
+  },
+  {
+   "fieldname": "section_break_qlxxt",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-11-12 20:32:33.358950",
+ "modified": "2025-12-06 13:53:17.585881",
  "modified_by": "Administrator",
  "module": "Buying House",
  "name": "Inspection Report",

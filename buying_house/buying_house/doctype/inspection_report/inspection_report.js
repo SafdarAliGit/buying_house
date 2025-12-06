@@ -102,6 +102,64 @@ frappe.ui.form.on('Inspection Report', {
             __('Done')
         );
     },
+    upload_multiple_other_images: function (frm) {
+        // Prompt the user with a dialog for both select and open-ended input
+        frappe.prompt(
+            [
+                {
+                    fieldname: 'upload_label',
+                    fieldtype: 'Select',
+                    label: 'Select Upload Label',
+                    reqd: 0, // Make it optional, priority will be given to the open-ended input
+                    options: [
+                        "Unlock",
+                        "Carton Images",
+                        "Packaging Images",
+                        "Measurements",
+                        "Print",
+                        "Faults"
+                    ].join('\n') // Add options as newline-separated values
+                },
+                {
+                    fieldname: 'custom_upload_label',
+                    fieldtype: 'Data',
+                    label: 'Custom Upload Label',
+                    reqd: 0 // Optional field for user to input their own label
+                }
+            ],
+            (values) => {
+                // Check if the custom_upload_label field has a value
+                let upload_label = values.custom_upload_label || values.upload_label;
+
+                if (!upload_label) {
+                    frappe.msgprint(__('Please select or enter an upload label.'));
+                    return;
+                }
+
+                // Proceed with the file uploader
+                new frappe.ui.FileUploader({
+                    method: 'buying_house.buying_house.doctype.util.capture',
+                    make_attachments_public: "False",
+                    dialog_title: "Inspection Report Images",
+                    disable_file_browser: "False",
+                    frm: frm,
+                    restrictions: {
+                        allowed_file_types: [".png", ".jpg", ".jpeg", ".gif", ".bmp"]
+                    },
+                    on_success(file) {
+                        // Add the file and label to the child table
+                        let child = frm.add_child('inspection_other_upload');
+                        child.image = file.file_url; // Set file URL
+                        child.upload_label = upload_label; // Set the label (custom or selected)
+                        frm.refresh_field('inspection_other_upload'); // Refresh child table
+                        frappe.msgprint(__('Successfully uploaded: {0}', [file.file_name]));
+                    }
+                });
+            },
+            __('Upload Label'),
+            __('Done')
+        );
+    },
 
     packed_in_carton: function (frm) {
         calculate_packed_in_carton_percent(frm);
